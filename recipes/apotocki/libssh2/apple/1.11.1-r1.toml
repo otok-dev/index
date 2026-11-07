@@ -1,0 +1,26 @@
+api = 1
+description = "libssh2, a client-side C library implementing the SSH2 protocol."
+format = 1
+keywords = [ "ssh", "sftp" ]
+library = "libssh2"
+license = "BSD-3-Clause"
+published = 2026-11-07T16:47:30Z
+recipe = "apotocki/libssh2"
+recipe-sha256 = "c73d3536dd5a231c97fadc4e85d2ab6cbb329404ff6dfeb473040b46d3505ff7"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/libssh2/1.11/apple" }
+revision = 1
+source = { sha256 = "d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658f7", url = "https://libssh2.org/download/libssh2-1.11.1.tar.gz" }
+variant = "apple"
+version = "1.11.1"
+
+[deps.openssl]
+default-recipe = "apotocki/openssl"
+version = ">= 3.0"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

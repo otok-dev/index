@@ -1,0 +1,21 @@
+api = 1
+description = "Checks the App Store for a newer version of the app and prompts the user to update."
+format = 1
+keywords = [ "app-store", "updates", "swift" ]
+library = "updates"
+license = "MIT"
+published = 2026-11-07T16:47:30Z
+recipe = "apotocki/updates"
+recipe-sha256 = "a652f376a48d1d2449a18027815daeac8071edceb46b5d8f19cad033cdeb3327"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/updates/2.0/apple" }
+revision = 1
+source = { commit = "388bc6369ca5b83a41b77743d8a62902b6ff7ef3", git = "https://github.com/rwbutler/Updates", tag = "2.0.2" }
+variant = "apple"
+version = "2.0.2"
+
+[apple]
+swift-package = "."
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst" ]

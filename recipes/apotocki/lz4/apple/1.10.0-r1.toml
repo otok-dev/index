@@ -1,0 +1,23 @@
+api = 1
+description = "LZ4, an extremely fast lossless compression library."
+format = 1
+keywords = [ "compression", "lz4" ]
+library = "lz4"
+license = "BSD-2-Clause"
+linkage = [ "static" ]
+published = 2026-11-07T16:47:30Z
+recipe = "apotocki/lz4"
+recipe-sha256 = "76217a70a359a7587e66f3d136df11771953f17848f3a3a46046619051b2fe19"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/lz4/1.10/apple" }
+revision = 1
+source = { commit = "ebb370ca83af193212df4dcbadcc5d87bc0de2f0", git = "https://github.com/lz4/lz4", tag = "v1.10.0" }
+variant = "apple"
+version = "1.10.0"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
