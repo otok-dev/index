@@ -1,0 +1,23 @@
+api = 1
+description = "Lua, the embeddable scripting language, as a library."
+format = 1
+keywords = [ "lua", "scripting" ]
+library = "lua"
+license = "MIT"
+linkage = [ "static" ]
+published = 2026-11-07T18:21:49Z
+recipe = "apotocki/lua"
+recipe-sha256 = "14e1dfbcfe861abdf809e91b1a092ac0af17921ab61ef3e3d6ed3624cb84b002"
+recipe-source = { commit = "2481fd248e2f96b07e70d4849a338953a7f2305e", git = "https://github.com/otok-dev/recipes", path = "recipes/lua/5.5/apple" }
+revision = 2
+source = { mirrors = [ "https://www.tecgraf.puc-rio.br/lua/ftp/lua-5.5.1.tar.gz" ], sha256 = "1c4b4068d67061f2a2231ad2b5422e77acea1487ea9890f6320af614f4373dce", url = "https://www.lua.org/ftp/lua-5.5.1.tar.gz" }
+variant = "apple"
+version = "5.5.1"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
