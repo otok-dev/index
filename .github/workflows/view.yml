@@ -9,6 +9,11 @@ name: view
 on:
   push:
     branches: [main]
+  # check.yml and probe.yml push with the workflow's token, and GitHub starts no workflow for such a push: the view is
+  # regenerated when they finish instead (when they pushed nothing, only the files that changed would be written)
+  workflow_run:
+    workflows: [check, probe]
+    types: [completed]
   workflow_dispatch:
 permissions:
   contents: read
