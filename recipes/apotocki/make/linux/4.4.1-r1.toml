@@ -1,0 +1,21 @@
+api = 1
+description = "GNU Make, built from source."
+format = 1
+keywords = [ "build", "tool" ]
+library = "make"
+license = "GPL-3.0-or-later"
+published = 2026-11-07T14:50:07Z
+recipe = "apotocki/make"
+recipe-sha256 = "3bbc8d3751b2c0d1bcb3fb8868668549ed90c0386e97a830c3027184bdf76864"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/make/4.4/linux" }
+revision = 1
+source = { mirrors = [ "https://ftpmirror.gnu.org/gnu/make/make-4.4.1.tar.gz" ], sha256 = "dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3", url = "https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz" }
+variant = "linux"
+version = "4.4.1"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[tool]
+programs = [ "make" ]

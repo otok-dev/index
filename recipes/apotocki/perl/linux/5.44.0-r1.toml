@@ -1,0 +1,24 @@
+api = 1
+description = "Perl 5, built from source."
+format = 1
+keywords = [ "perl", "interpreter", "tool" ]
+library = "perl"
+license = "Artistic-1.0-Perl OR GPL-1.0-or-later"
+published = 2026-11-07T14:50:07Z
+recipe = "apotocki/perl"
+recipe-sha256 = "a40d22dcb9e1d13e890754ed52b1015fb584a1c34a8d9bd1eed5e9b5de0ad484"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/perl/5.44/linux" }
+revision = 1
+source = { sha256 = "505cf43912e9480495c344c70260452e32aa2a73c546a026b3f100053b23ce91", url = "https://www.cpan.org/src/5.0/perl-5.44.0.tar.xz" }
+variant = "linux"
+version = "5.44.0"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[tool]
+programs = [ "perl" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
