@@ -1,0 +1,28 @@
+api = 1
+cxx-standard = ">= 17"
+description = "LunaSVG, an SVG rendering library in C++."
+format = 1
+keywords = [ "svg", "graphics", "rendering" ]
+library = "lunasvg"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-07T17:05:57Z
+recipe = "apotocki/lunasvg"
+recipe-sha256 = "218e129899043e1bda1e318fd70e186041c77a4cc50d39cd2c8268df38ddad8b"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/lunasvg/3.5/linux" }
+revision = 1
+source = { commit = "83c58df8103dc7dca423dfd824992af94d49bed6", git = "https://github.com/sammycage/lunasvg", tag = "v3.5.0" }
+variant = "linux"
+version = "3.5.0"
+
+[deps.plutovg]
+default-recipe = "apotocki/plutovg"
+version = ">= 1.3"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

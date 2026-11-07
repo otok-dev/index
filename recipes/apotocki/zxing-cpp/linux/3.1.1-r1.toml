@@ -1,0 +1,28 @@
+api = 1
+cxx-standard = ">= 20"
+description = "zxing-cpp, a barcode reader and writer for linear and matrix formats: QR Code, Micro QR, rMQR, Aztec, DataMatrix, PDF417, MaxiCode, EAN/UPC, Code 39/93/128, ITF, Codabar, DataBar and others."
+format = 1
+keywords = [ "barcode", "qrcode", "scanner", "zxing" ]
+library = "zxing-cpp"
+license = "Apache-2.0 AND BSD-3-Clause AND CC0-1.0"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-07T17:05:57Z
+recipe = "apotocki/zxing-cpp"
+recipe-sha256 = "e7028a58b070f6dc1764e0154b7b22026239b7750bb7a633e6d8917884748c1e"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/zxing-cpp/3.1/linux" }
+revision = 1
+source = { commit = "287c85df6f961c8efbfb5ffd736cd9457b8b890e", git = "https://github.com/zxing-cpp/zxing-cpp", submodules = true, tag = "v3.1.1" }
+variant = "linux"
+version = "3.1.1"
+
+[options.writers]
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.16" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
