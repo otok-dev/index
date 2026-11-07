@@ -1,0 +1,23 @@
+api = 1
+description = "libbz2, the bzip2 compression library."
+format = 1
+keywords = [ "compression", "bzip2" ]
+library = "bzip2"
+license = "bzip2-1.0.6"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-07T15:53:03Z
+recipe = "apotocki/bzip2"
+recipe-sha256 = "3f38838c4f6845747019acd1af3e94c59620e89a58bef8b8a25ba68f316febf5"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes.git", path = "recipes/bzip2/1.0/windows" }
+revision = 1
+source = { sha256 = "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269", url = "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz" }
+variant = "windows"
+version = "1.0.8"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
