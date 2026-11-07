@@ -1,0 +1,25 @@
+api = 1
+description = "OpenSSL (libssl, libcrypto), built from source."
+format = 1
+keywords = [ "tls", "crypto" ]
+library = "openssl"
+license = "Apache-2.0"
+recipe = "apotocki/openssl"
+recipe-sha256 = "efadf7f6d1f01fc52e1a6d9bb5b7bd98e46a333336ab6f4d3ffc2a5cb1f06be2"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/openssl/4.0/apple" }
+revision = 1
+source = { commit = "af1775b60dfa141a4ad762585052cabeb9f37e9e", git = "https://github.com/openssl/openssl", tag = "openssl-4.0.3" }
+variant = "apple"
+version = "4.0.3"
+
+[options.no-deprecated]
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
+perl = { default-recipe = "apotocki/perl", version = ">= 5.30" }

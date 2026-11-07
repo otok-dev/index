@@ -1,0 +1,45 @@
+api = 1
+cxx-standard = ">= 17"
+description = "ICU, the International Components for Unicode (libicuuc, libicui18n, libicuio, the data)."
+format = 1
+keywords = [ "unicode", "i18n", "icu" ]
+library = "icu4c"
+license = "Unicode-3.0"
+linkage = [ "static" ]
+recipe = "apotocki/icu4c"
+recipe-sha256 = "e3f47089665c992d41cf6c8b8737448b0f58ba5bcc19d244f1ab3f5e5c6df00c"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/icu4c/79/apple" }
+revision = 1
+source = { sha256 = "06fa63ecb521048f8082f12ad988f6b678d90cbd88aafce24cbc94902b191d99", url = "https://github.com/unicode-org/icu/releases/download/release-79.1/icu4c-79.1-sources.tgz" }
+variant = "apple"
+version = "79.1"
+
+[options.data]
+default = "static"
+type = "enum"
+values = [ "static", "file", "none" ]
+
+[options.data-filter]
+type = "file"
+
+[options.no-renaming]
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
+python = { default-recipe = "apotocki/python", version = ">= 3.9" }
+
+[[resource]]
+name = "data"
+sha256 = "72489fb316a60ae1c1da205866edd01b17e8fbf8354ad0615e6cc60f74e08811"
+url = "https://github.com/unicode-org/icu/releases/download/release-79.1/icu4c-79.1-data-bin-l.zip"
+
+[[resource]]
+name = "data_sources"
+sha256 = "b3a430009bb5fab77b1a4b98fab85cc8f887e26d4e4166121724298ae14d7224"
+url = "https://github.com/unicode-org/icu/releases/download/release-79.1/icu4c-79.1-data.zip"
