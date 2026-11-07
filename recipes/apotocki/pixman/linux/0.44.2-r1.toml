@@ -1,0 +1,22 @@
+api = 1
+description = "Pixman, the pixel-manipulation library of Cairo and X."
+format = 1
+keywords = [ "graphics", "pixels", "compositing" ]
+library = "pixman"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/pixman"
+recipe-sha256 = "bdf40510f7d26362c12a0808bc64b557319dcbdb4766bb2569d18e622eee3dfd"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/pixman/0.44/linux" }
+revision = 1
+source = { commit = "46655e15671e1ca62d699821d75a85d341d7229c", git = "https://gitlab.freedesktop.org/pixman/pixman.git", tag = "pixman-0.44.2" }
+variant = "linux"
+version = "0.44.2"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+meson = { default-recipe = "apotocki/meson", version = ">= 1.3" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

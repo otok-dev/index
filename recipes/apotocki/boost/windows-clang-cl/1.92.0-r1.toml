@@ -1,0 +1,70 @@
+api = 1
+cxx-standard = ">= 11"
+description = "Boost C++ libraries: the headers, and the compiled libraries a project selects."
+format = 1
+keywords = [ "boost", "cpp" ]
+library = "boost"
+license = "BSL-1.0"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/boost"
+recipe-sha256 = "f7cc25b816e1cf2231275076e8fef9de856d0a22d5825a7b76d7ee015a1f47bb"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/boost/1.92/windows-clang-cl" }
+revision = 1
+source = { mirrors = [ "https://sourceforge.net/projects/boost/files/boost/1.92.0/boost_1_92_0.tar.bz2" ], sha256 = "5c1d40cb8e19adbf740a4ec2da35b3e58f3f5804b1dce44deb53df72193cbc6c", url = "https://archives.boost.io/release/1.92.0/source/boost_1_92_0.tar.bz2" }
+variant = "windows-clang-cl"
+version = "1.92.0"
+
+[deps.icu4c]
+default-recipe = "apotocki/icu4c"
+version = ">= 70"
+when = { option = "icu" }
+
+[options.icu]
+default = false
+type = "bool"
+
+[options.libraries]
+additive = true
+default = []
+type = "list"
+values = [
+"atomic",
+"charconv",
+"chrono",
+"cobalt",
+"container",
+"context",
+"contract",
+"coroutine",
+"date_time",
+"exception",
+"fiber",
+"filesystem",
+"graph",
+"iostreams",
+"json",
+"locale",
+"log",
+"math",
+"nowide",
+"process",
+"program_options",
+"random",
+"regex",
+"serialization",
+"stacktrace",
+"test",
+"thread",
+"timer",
+"type_erasure",
+"url",
+"wave"
+]
+
+[platforms]
+build-on = [ "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
