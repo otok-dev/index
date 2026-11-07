@@ -1,0 +1,23 @@
+api = 1
+description = "Meson, the build system: meson.py and its mesonbuild package, run by Python."
+format = 1
+keywords = [ "build", "tool" ]
+library = "meson"
+license = "Apache-2.0"
+recipe = "apotocki/meson"
+recipe-sha256 = "74aaf7eab8bcd15782304fa844cd594572fb3e083aab4c65ad637b49dd562f26"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes.git", path = "recipes/meson/1.12/windows" }
+revision = 1
+source = { sha256 = "ab0a6ca09f8ef70c564c8241fb5a23957886a0b53fb58412b5e07eaf07dba743", url = "https://github.com/mesonbuild/meson/releases/download/1.12.1/meson-1.12.1.tar.gz" }
+variant = "windows"
+version = "1.12.1"
+
+[platforms]
+build-on = [ "windows/msvc", "windows/clang-cl" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "meson" ]
+
+[toolchains]
+python = { default-recipe = "apotocki/python", version = ">= 3.10" }

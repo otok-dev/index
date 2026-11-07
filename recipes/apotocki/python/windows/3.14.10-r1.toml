@@ -1,0 +1,30 @@
+api = 1
+description = "Python, the interpreter, prebuilt for the build machine: python.org's embeddable package on Windows."
+format = 1
+keywords = [ "python", "interpreter", "tool" ]
+library = "python"
+license = "PSF-2.0"
+recipe = "apotocki/python"
+recipe-sha256 = "b4f75c4f161b0dfd74b9023b9ec62b67a7d686ee476ea1466a62c2fac992c091"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes.git", path = "recipes/python/3.14/windows" }
+revision = 1
+source = { sha256 = "de414a57119abef52784d8993e341d53aed635fc2b05c2607d9f98a2c5b72032", url = "https://www.python.org/ftp/python/3.14.10/Python-3.14.10.tar.xz" }
+variant = "windows"
+version = "3.14.10"
+
+[platforms]
+build-on = [ "windows/msvc", "windows/clang-cl" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "python" ]
+
+[[resource]]
+name = "windows_x86_64"
+sha256 = "90905e64a840557d8c1bc4f5b74db3d7ee85e3ffb217611cac1c7813acea4159"
+url = "https://www.python.org/ftp/python/3.14.10/python-3.14.10-embed-amd64.zip"
+
+[[resource]]
+name = "windows_arm64"
+sha256 = "bbe116bb1248820359cbf25127ac5c7794ea161869d83686cfbc9a45203ff836"
+url = "https://www.python.org/ftp/python/3.14.10/python-3.14.10-embed-arm64.zip"

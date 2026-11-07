@@ -1,0 +1,20 @@
+api = 1
+description = "Perl 5, built from source."
+format = 1
+keywords = [ "perl", "interpreter", "tool" ]
+library = "perl"
+license = "Artistic-1.0-Perl OR GPL-1.0-or-later"
+recipe = "apotocki/perl"
+recipe-sha256 = "e3d060348e980cbf3b7c29716bcc0e8060f50b829e15b5b2cca652e81370aae3"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes.git", path = "recipes/perl/5.44/windows" }
+revision = 1
+source = { sha256 = "505cf43912e9480495c344c70260452e32aa2a73c546a026b3f100053b23ce91", url = "https://www.cpan.org/src/5.0/perl-5.44.0.tar.xz" }
+variant = "windows"
+version = "5.44.0"
+
+[platforms]
+build-on = [ "windows/msvc" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "perl" ]
