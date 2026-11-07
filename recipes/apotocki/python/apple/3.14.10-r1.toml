@@ -1,0 +1,31 @@
+api = 1
+description = "Python, the interpreter, prebuilt for the build machine."
+format = 1
+keywords = [ "python", "interpreter", "tool" ]
+library = "python"
+license = "PSF-2.0"
+published = 2026-11-07T14:46:17Z
+recipe = "apotocki/python"
+recipe-sha256 = "a21f427236fca3d6f5ad8d669ba3ab2d7e831b2081a6ac00c342132a0b6c066a"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/python/3.14/apple" }
+revision = 1
+source = { sha256 = "de414a57119abef52784d8993e341d53aed635fc2b05c2607d9f98a2c5b72032", url = "https://www.python.org/ftp/python/3.14.10/Python-3.14.10.tar.xz" }
+variant = "apple"
+version = "3.14.10"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "macosx" ]
+
+[tool]
+programs = [ "python" ]
+
+[[resource]]
+name = "macos_arm64"
+sha256 = "30a18bcb9ab75e485b4bf4e5d783dde165571e7e42c56dff47a2d2c5345183a4"
+url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.14.10%2B20261026-aarch64-apple-darwin-install_only.tar.gz"
+
+[[resource]]
+name = "macos_x86_64"
+sha256 = "01cedae5d4a66ac570e13cb35fa570d0e79ba8e9affd4518a5d85b6c2b98ff10"
+url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.14.10%2B20261026-x86_64-apple-darwin-install_only.tar.gz"

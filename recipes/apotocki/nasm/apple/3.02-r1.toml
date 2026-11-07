@@ -1,0 +1,24 @@
+api = 1
+description = "NASM, the Netwide Assembler, built from source."
+format = 1
+keywords = [ "assembler", "tool" ]
+library = "nasm"
+license = "BSD-2-Clause"
+published = 2026-11-07T14:46:17Z
+recipe = "apotocki/nasm"
+recipe-sha256 = "597d4c69bfe00bc7781053d85d8c9a2c6c686edd09f5659bb0e5652fd7413d9b"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes", path = "recipes/nasm/3.02/apple" }
+revision = 1
+source = { sha256 = "87336eba53b4acfe917424ab5d500d2b0054d9f5148d35c2273ccf2cfb712f0d", url = "https://www.nasm.us/pub/nasm/releasebuilds/3.02/nasm-3.02.tar.xz" }
+variant = "apple"
+version = "3.02"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "macosx" ]
+
+[tool]
+programs = [ "nasm" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
