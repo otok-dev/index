@@ -1,0 +1,27 @@
+api = 1
+description = "OpenSSL (libssl, libcrypto), built from source."
+format = 1
+keywords = [ "tls", "crypto" ]
+library = "openssl"
+license = "Apache-2.0"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/openssl"
+recipe-sha256 = "4cebfbebdb2233f27c06a20534bc930152ccfb9a1783673927f2209e2314228b"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes.git", path = "recipes/openssl/4.1/windows" }
+revision = 1
+source = { commit = "2f4e3a5fec05394068cfa7379890ab552483a8a6", git = "https://github.com/openssl/openssl", tag = "openssl-4.1.0" }
+variant = "windows"
+version = "4.1.0"
+
+[options.no-deprecated]
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81", when = { environment = [ "linux/clang-cl" ] } }
+nasm = { default-recipe = "apotocki/nasm", version = ">= 2.09", when = { arch = [ "x86_64" ], environment = [ "windows/msvc" ] } }
+perl = { default-recipe = "apotocki/perl", version = ">= 5.30" }

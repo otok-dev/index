@@ -1,0 +1,68 @@
+api = 1
+description = "Skia, the 2D graphics library of Chrome and Android: the core with the Direct3D backend and the codecs."
+format = 1
+keywords = [ "graphics", "2d", "gpu" ]
+library = "skia"
+license = "BSD-3-Clause"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/skia"
+recipe-sha256 = "30ecd1f63223f2d09d2da8737ffb0e82f503b20918102ee9c7d12514edd92465"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes.git", path = "recipes/skia/152/windows" }
+revision = 1
+source = { commit = "2e21637acd9980078d3d2e03eead5baeec4e082a", git = "https://github.com/apotocki/skia" }
+variant = "windows"
+version = "152.0.0"
+
+[platforms]
+build-on = [ "windows/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+gn = { default-recipe = "apotocki/gn", version = ">= 2175" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
+python = { default-recipe = "apotocki/python", version = ">= 3.8" }
+
+[[resource]]
+commit = "646b7f569718921d7d4b5b8e22572ff6c76f2596"
+git = "https://chromium.googlesource.com/chromium/src/third_party/zlib"
+name = "zlib"
+
+[[resource]]
+commit = "d5515b5b8be3901aac04e5bd8bd5c89f287bcd33"
+git = "https://skia.googlesource.com/third_party/libpng.git"
+name = "libpng"
+
+[[resource]]
+commit = "e14cbfaa85529d47f9f55b0f104a579c1061f9ad"
+git = "https://chromium.googlesource.com/chromium/deps/libjpeg_turbo.git"
+name = "libjpeg_turbo"
+
+[[resource]]
+commit = "845d5476a866141ba35ac133f856fa62f0b7445f"
+git = "https://chromium.googlesource.com/webm/libwebp.git"
+name = "libwebp"
+
+[[resource]]
+commit = "e3f919ccfe3ef542cfc983a82146070258fb57f8"
+git = "https://skia.googlesource.com/external/github.com/google/wuffs-mirror-release-c.git"
+name = "wuffs"
+
+[[resource]]
+commit = "6154446fccefbf3ca644894f598969113b0c7bcd"
+git = "https://chromium.googlesource.com/external/github.com/libexpat/libexpat.git"
+name = "expat"
+
+[[resource]]
+commit = "9cb1fee51069b206effb4736e443b038d230789d"
+git = "https://chromium.googlesource.com/external/github.com/harfbuzz/harfbuzz.git"
+name = "harfbuzz"
+
+[[resource]]
+commit = "b8fcf307f1f347089e3c46eb4451d27f32ebc8d3"
+git = "https://chromium.googlesource.com/external/github.com/KhronosGroup/SPIRV-Cross"
+name = "spirv_cross"
+
+[[resource]]
+commit = "169895d529dfce00390a20e69c2f516066fe7a3b"
+git = "https://skia.googlesource.com/external/github.com/GPUOpen-LibrariesAndSDKs/D3D12MemoryAllocator.git"
+name = "d3d12allocator"

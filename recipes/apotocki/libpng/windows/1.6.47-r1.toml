@@ -1,0 +1,26 @@
+api = 1
+description = "libpng, the reference library for PNG images."
+format = 1
+keywords = [ "png", "image" ]
+library = "libpng"
+license = "libpng-2.0"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/libpng"
+recipe-sha256 = "94a08bb609e13a8745175bbed2aee9a75edaa612297e14287878a95bb07d80d2"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libpng/1.6/windows" }
+revision = 1
+source = { commit = "872555f4ba910252783af1507f9e7fe1653be252", git = "https://github.com/pnggroup/libpng", tag = "v1.6.47" }
+variant = "windows"
+version = "1.6.47"
+
+[deps.zlib]
+default-recipe = "apotocki/zlib"
+version = ">= 1.2"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
