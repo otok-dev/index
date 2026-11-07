@@ -1,0 +1,24 @@
+api = 1
+description = "Ninja, a small build system with a focus on speed."
+format = 1
+keywords = [ "build", "tool" ]
+library = "ninja"
+license = "Apache-2.0"
+published = 2026-11-07T14:32:10Z
+recipe = "apotocki/ninja"
+recipe-sha256 = "3eafc737af8345c0c7a560096e0b00c6f92e305d212a5c6833ab59302f1da750"
+recipe-source = { commit = "32756a87cf5bd189ca4c9825159bf0713ea8cf5e", git = "https://github.com/otok-dev/recipes.git", path = "recipes/ninja/1.13/windows" }
+revision = 1
+source = { commit = "3441b633c2fe2c494e958780ba0f4227b1327634", git = "https://github.com/ninja-build/ninja", tag = "v1.13.2" }
+variant = "windows"
+version = "1.13.2"
+
+[platforms]
+build-on = [ "windows/msvc" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "ninja" ]
+
+[toolchains]
+python = { default-recipe = "apotocki/python", version = ">= 3.6" }
