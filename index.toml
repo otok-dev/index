@@ -1,0 +1,7 @@
+format = 1
+name = "Otok public index"
+catalog = "https://otok-dev.github.io/index"
+view = "https://otok-dev.github.io/index"
+repository = "https://github.com/otok-dev/index"
+established-entries-per-day = 50
+review-entries-per-day = 10
