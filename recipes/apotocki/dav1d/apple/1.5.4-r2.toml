@@ -1,0 +1,23 @@
+api = 1
+description = "dav1d, an AV1 decoder focused on speed and correctness."
+format = 1
+keywords = [ "av1", "video", "decoder" ]
+library = "dav1d"
+license = "BSD-2-Clause"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/dav1d"
+recipe-sha256 = "569b5e4ca19329ee06a83e64bbf2d1472e3eff3a4f60cb2e4e8f29b99cec573b"
+recipe-source = { commit = "389f3ae9c2814c92ba9016b029e0d95828c2167f", git = "https://github.com/otok-dev/recipes.git", path = "recipes/dav1d/1.5/apple" }
+revision = 2
+source = { sha256 = "686616b7c69eb88d44459391ab25cac13b6647a3b288835c5784e71c1514a5c5", url = "https://downloads.videolan.org/pub/videolan/dav1d/1.5.4/dav1d-1.5.4.tar.xz" }
+variant = "apple"
+version = "1.5.4"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+meson = { default-recipe = "apotocki/meson", version = ">= 1.2" }
+nasm = { default-recipe = "apotocki/nasm", version = ">= 2.14" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
