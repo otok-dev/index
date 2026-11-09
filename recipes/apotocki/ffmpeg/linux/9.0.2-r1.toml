@@ -1,0 +1,38 @@
+api = 1
+c-standard = ">= 11"
+description = "FFmpeg's libraries (avutil, avcodec, avformat, avfilter, swscale, swresample) under the LGPL."
+format = 1
+keywords = [ "video", "audio", "codec", "multimedia", "ffmpeg" ]
+library = "ffmpeg"
+license = "LGPL-2.1-or-later"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-09T11:53:56Z
+recipe = "apotocki/ffmpeg"
+recipe-sha256 = "5d32aadbdf92dbda272c272ac61d77091eaa12225416d91ab13ffcb115bd1a6b"
+recipe-source = { commit = "389f3ae9c2814c92ba9016b029e0d95828c2167f", git = "https://github.com/otok-dev/recipes", path = "recipes/ffmpeg/9.0/linux" }
+revision = 1
+source = { commit = "946fcce07b6dcd0331c8cc609192aeff5e1924f8", git = "https://github.com/FFmpeg/FFmpeg", tag = "n9.0.2" }
+variant = "linux"
+version = "9.0.2"
+
+[deps.dav1d]
+default-recipe = "apotocki/dav1d"
+version = ">= 1.0"
+when = { option = "dav1d" }
+
+[deps.zlib]
+default-recipe = "apotocki/zlib"
+version = ">= 1.2"
+
+[options.dav1d]
+default = true
+type = "bool"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
+nasm = { default-recipe = "apotocki/nasm", version = ">= 2.13", when = { arch = [ "x86_64" ] } }
+pkg-config = { default-recipe = "apotocki/pkgconf", version = ">= 1" }
