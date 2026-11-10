@@ -1,0 +1,21 @@
+api = 1
+description = "Sodium, a modern, easy-to-use library for encryption, decryption, signatures, password hashing and more."
+format = 1
+keywords = [ "crypto", "cryptography", "encryption", "signatures", "nacl" ]
+library = "libsodium"
+license = "ISC"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/libsodium"
+recipe-sha256 = "2b6827aab477ee9c94dd01e2821cc81580626b181677aba5033b0051cbeb0191"
+recipe-source = { commit = "7387b6ee8dee98c91c576f3e39051559e5e83d83", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libsodium/1.0/android" }
+revision = 1
+source = { mirrors = [ "https://github.com/jedisct1/libsodium/releases/download/1.0.22-RELEASE/libsodium-1.0.22.tar.gz" ], sha256 = "adbdd8f16149e81ac6078a03aca6fc03b592b89ef7b5ed83841c086191be3349", url = "https://download.libsodium.org/libsodium/releases/libsodium-1.0.22.tar.gz" }
+variant = "android"
+version = "1.0.22"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
