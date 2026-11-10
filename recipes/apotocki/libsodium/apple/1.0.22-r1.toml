@@ -1,0 +1,22 @@
+api = 1
+description = "Sodium, a modern, easy-to-use library for encryption, decryption, signatures, password hashing and more."
+format = 1
+keywords = [ "crypto", "cryptography", "encryption", "signatures", "nacl" ]
+library = "libsodium"
+license = "ISC"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-10T11:00:38Z
+recipe = "apotocki/libsodium"
+recipe-sha256 = "5ef2705f89ef4422f24b84b72ea9136148f48ef91fdbdc0abff7d48e8e9b13b6"
+recipe-source = { commit = "7387b6ee8dee98c91c576f3e39051559e5e83d83", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libsodium/1.0/apple" }
+revision = 1
+source = { mirrors = [ "https://github.com/jedisct1/libsodium/releases/download/1.0.22-RELEASE/libsodium-1.0.22.tar.gz" ], sha256 = "adbdd8f16149e81ac6078a03aca6fc03b592b89ef7b5ed83841c086191be3349", url = "https://download.libsodium.org/libsodium/releases/libsodium-1.0.22.tar.gz" }
+variant = "apple"
+version = "1.0.22"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
