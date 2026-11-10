@@ -1,0 +1,23 @@
+api = 1
+description = "Sodium, a modern, easy-to-use library for encryption, decryption, signatures, password hashing and more."
+format = 1
+keywords = [ "crypto", "cryptography", "encryption", "signatures", "nacl" ]
+library = "libsodium"
+license = "ISC"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-10T09:31:43Z
+recipe = "apotocki/libsodium"
+recipe-sha256 = "7fdf0c4aee349fa206d6c62d689a1c7573882a5ecb9701d26baebcd9a0400260"
+recipe-source = { commit = "7387b6ee8dee98c91c576f3e39051559e5e83d83", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libsodium/1.0/windows" }
+revision = 1
+source = { mirrors = [ "https://github.com/jedisct1/libsodium/releases/download/1.0.22-RELEASE/libsodium-1.0.22.tar.gz" ], sha256 = "adbdd8f16149e81ac6078a03aca6fc03b592b89ef7b5ed83841c086191be3349", url = "https://download.libsodium.org/libsodium/releases/libsodium-1.0.22.tar.gz" }
+variant = "windows"
+version = "1.0.22"
+
+[platforms]
+build-on = [ "windows/msvc" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

@@ -1,0 +1,25 @@
+api = 1
+description = "GMP, the GNU Multiple Precision Arithmetic Library: integers, rationals and floating-point numbers of any size."
+format = 1
+keywords = [ "bignum", "arbitrary-precision", "math", "integer", "rational" ]
+library = "gmp"
+license = "LGPL-3.0-or-later OR GPL-2.0-or-later"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-10T09:31:43Z
+recipe = "apotocki/gmp"
+recipe-sha256 = "7b04c48fffad9b47d59de6dffa40d880b971054838b485aed551bb911ebe9c62"
+recipe-source = { commit = "7387b6ee8dee98c91c576f3e39051559e5e83d83", git = "https://github.com/otok-dev/recipes.git", path = "recipes/gmp/6.3/windows" }
+revision = 1
+source = { mirrors = [ "https://ftpmirror.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz", "https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz" ], sha256 = "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898", url = "https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz" }
+variant = "windows"
+version = "6.3.0"
+
+[platforms]
+architectures = { windows = [ "x86_64" ] }
+build-on = [ "windows/msvc" ]
+supported = [ "windows" ]
+
+[toolchains]
+as = { default-recipe = "apotocki/make" }
+m4 = { default-recipe = "apotocki/make" }
+make = { default-recipe = "apotocki/make", version = ">= 4.4.1" }
