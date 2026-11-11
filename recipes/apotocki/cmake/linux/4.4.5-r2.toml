@@ -1,0 +1,34 @@
+api = 1
+description = "CMake, the cross-platform build system generator, as Kitware releases it."
+format = 1
+keywords = [ "build", "tool" ]
+library = "cmake"
+license = "BSD-3-Clause"
+published = 2026-11-11T13:15:24Z
+recipe = "apotocki/cmake"
+recipe-sha256 = "42905bd8b983d537f4fdf5ebff6858ffa6c6cd5ac9befe58f85847837164bddd"
+recipe-source = { commit = "168c1ffb26a26399e86522961f516799c6b97c10", git = "https://github.com/otok-dev/recipes", path = "recipes/cmake/4.4/linux" }
+revision = 2
+source = { sha256 = "a0c54c88abb8078dd8eccadb717fc6bb194bf18e7d44c86309910288886e04e2", url = "https://github.com/Kitware/CMake/releases/download/v4.4.5/cmake-4.4.5.tar.gz" }
+variant = "linux"
+version = "4.4.5"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[tool]
+programs = [ "cmake", "ctest", "cpack" ]
+
+[toolchains]
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
+
+[[resource]]
+name = "linux_x86_64"
+sha256 = "ed85135c5a5135b45e50423cb406dea04ca3338da0b8ef3c9ede963559680be0"
+url = "https://github.com/Kitware/CMake/releases/download/v4.4.5/cmake-4.4.5-linux-x86_64.tar.gz"
+
+[[resource]]
+name = "linux_arm64"
+sha256 = "301d5063ab259577c1b57ce5490b1aab9ea5c56dc4c822f73499553dab94925f"
+url = "https://github.com/Kitware/CMake/releases/download/v4.4.5/cmake-4.4.5-linux-aarch64.tar.gz"
