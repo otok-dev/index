@@ -1,0 +1,19 @@
+id = "2026-0001"
+recipes = ["apotocki/make"]
+variants = ["windows"]
+versions = ["4.4.1-r1", "4.4.1-r2"]
+severity = "withdrawn"
+status = "confirmed"
+summary = "MSYS2's fork fails in otok's sandbox on Windows (0xC0000142): move to 4.4.1-r3 with 'otok update make'"
+details = """
+The MSYS2 programs and DLLs of revisions 1 and 2 lack `IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE`. Windows forces ASLR on
+the processes of an AppContainer, which otok's sandbox is (on by default since otok 0.4.0), so each process loads them at
+another address and the fork of the Cygwin runtime fails: `dofork: child -1 - forked process … died unexpectedly, exit
+code 0xC0000142` and `fork: Resource temporarily unavailable`, typically in the `configure` of a recipe built with
+`otok.autotools` (icu4c's build tools, gmp).
+
+Revision 3 sets the flag on every image of the tree and is otherwise the same. A project whose `otok.lock` holds revision 1
+or 2 moves to it with `otok update make`.
+"""
+published = 2026-11-12T17:19:56Z
+updated = 2026-11-12T17:19:56Z
