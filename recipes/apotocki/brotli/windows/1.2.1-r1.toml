@@ -1,0 +1,22 @@
+api = 1
+description = "Brotli, a generic-purpose lossless compression algorithm (encoder, decoder and the common dictionary)."
+format = 1
+keywords = [ "compression", "brotli" ]
+library = "brotli"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/brotli"
+recipe-sha256 = "7271ffd7610152c0d4c93d99cc84824a4a179d61a329d909cb17efaf7786b6e7"
+recipe-source = { commit = "b970f0bb534a7425d6b6fdf304db08dca4a92f7b", git = "https://github.com/otok-dev/recipes.git", path = "recipes/brotli/1.2/windows" }
+revision = 1
+source = { commit = "db24a98aed38a16de78cc05ca15cdd8dc2a0d92d", git = "https://github.com/google/brotli", tag = "v1.2.1" }
+variant = "windows"
+version = "1.2.1"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
