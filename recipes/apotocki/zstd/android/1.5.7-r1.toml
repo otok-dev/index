@@ -1,0 +1,23 @@
+api = 1
+description = "Zstandard, a fast lossless compression algorithm."
+format = 1
+keywords = [ "compression", "zstd" ]
+library = "zstd"
+license = "BSD-3-Clause OR GPL-2.0-only"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-13T14:35:37Z
+recipe = "apotocki/zstd"
+recipe-sha256 = "33286c1b0e13b6dfec960bd804fb90901da4f75c7bc18f2509255d9383e353b6"
+recipe-source = { commit = "b970f0bb534a7425d6b6fdf304db08dca4a92f7b", git = "https://github.com/otok-dev/recipes.git", path = "recipes/zstd/1.5/android" }
+revision = 1
+source = { sha256 = "eb33e51f49a15e023950cd7825ca74a4a2b43db8354825ac24fc1b7ee09e6fa3", url = "https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz" }
+variant = "android"
+version = "1.5.7"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
