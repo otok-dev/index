@@ -1,0 +1,24 @@
+api = 1
+description = "GNU M4, the macro processor, built from source."
+format = 1
+keywords = [ "macro", "m4", "tool" ]
+library = "m4"
+license = "GPL-3.0-or-later"
+published = 2026-11-14T12:39:34Z
+recipe = "apotocki/m4"
+recipe-sha256 = "18ac4bb94cb7721eca08052a74221a1000fd5f0eb66e6b61d9bc2044e1385638"
+recipe-source = { commit = "b7e558f8376894485944baffded9182f05fb8e61", git = "https://github.com/otok-dev/recipes.git", path = "recipes/m4/1.4/apple" }
+revision = 1
+source = { mirrors = [ "https://ftpmirror.gnu.org/gnu/m4/m4-1.4.21.tar.xz" ], sha256 = "f25c6ab51548a73a75558742fb031e0625d6485fe5f9155949d6486a2408ab66", url = "https://ftp.gnu.org/gnu/m4/m4-1.4.21.tar.xz" }
+variant = "apple"
+version = "1.4.21"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "macosx" ]
+
+[tool]
+programs = [ "m4" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
