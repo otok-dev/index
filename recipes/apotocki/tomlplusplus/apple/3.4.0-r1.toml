@@ -1,0 +1,29 @@
+api = 1
+cxx-standard = ">= 17"
+description = "toml++, a TOML parser and serializer for C++17 and later: header-only, or compiled as a library."
+format = 1
+keywords = [ "toml", "parser", "serializer", "config", "cpp" ]
+library = "tomlplusplus"
+license = "MIT"
+linkage = [ "static" ]
+published = 2026-11-14T11:59:44Z
+recipe = "apotocki/tomlplusplus"
+recipe-sha256 = "e7a3d8d2a46055c89c9a096544e559486389e7c6355c8b17b8c28a11aeee55f2"
+recipe-source = { commit = "6c56f79ab6e33f4577ff7b5703c9c7fba9116836", git = "https://github.com/otok-dev/recipes.git", path = "recipes/tomlplusplus/3.4/apple" }
+revision = 1
+source = { commit = "30172438cee64926dc41fdd9c11fb3ba5b2ba9de", git = "https://github.com/marzer/tomlplusplus", tag = "v3.4.0" }
+variant = "apple"
+version = "3.4.0"
+
+[options.compiled]
+additive = true
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20", when = { option = "compiled" } }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10", when = { option = "compiled" } }
