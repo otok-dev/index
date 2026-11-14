@@ -1,0 +1,23 @@
+api = 1
+description = "Expat, a stream-oriented XML parser library written in C."
+format = 1
+keywords = [ "xml", "parser" ]
+library = "expat"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-14T16:51:29Z
+recipe = "apotocki/expat"
+recipe-sha256 = "7e897e61c8fc11b8ece7ed5f5199629bf2b24d87e6d1d72fbe35bc2e93ed02af"
+recipe-source = { commit = "1ea16409510454b8ee22a4a83ff304e3e03808c4", git = "https://github.com/otok-dev/recipes.git", path = "recipes/expat/2.10/apple" }
+revision = 1
+source = { sha256 = "c624ba2998fc65df1163a49641ff3f9ab73138b11641d92c86bee0fb01b1bc7f", url = "https://github.com/libexpat/libexpat/releases/download/R_2_10_0/expat-2.10.0.tar.xz" }
+variant = "apple"
+version = "2.10.0"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
