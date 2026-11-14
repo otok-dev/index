@@ -1,0 +1,24 @@
+api = 1
+cxx-standard = ">= 17"
+description = "Abseil, the C++ common libraries of Google."
+format = 1
+keywords = [ "cpp", "base", "containers", "strings", "synchronization", "time" ]
+library = "abseil"
+license = "Apache-2.0"
+linkage = [ "static" ]
+published = 2026-11-14T01:41:57Z
+recipe = "apotocki/abseil"
+recipe-sha256 = "f37927c28113db9b81309c557caa99bc0398bcd3e12f77661f32b0557697cfdd"
+recipe-source = { commit = "92d81fe0aabb0cd949726f5b8011beb83fc2ae02", git = "https://github.com/otok-dev/recipes.git", path = "recipes/abseil/20260817/apple" }
+revision = 1
+source = { sha256 = "f7e05179df39c45434cad433f5783840bb3788ef322976f9138bc6b72b3a107d", url = "https://github.com/abseil/abseil-cpp/releases/download/20260817.0/abseil-cpp-20260817.0.tar.gz" }
+variant = "apple"
+version = "20260817.0"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
