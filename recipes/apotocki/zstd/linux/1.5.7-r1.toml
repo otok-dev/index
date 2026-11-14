@@ -1,0 +1,23 @@
+api = 1
+description = "Zstandard, a fast lossless compression algorithm."
+format = 1
+keywords = [ "compression", "zstd" ]
+library = "zstd"
+license = "BSD-3-Clause OR GPL-2.0-only"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-14T16:49:33Z
+recipe = "apotocki/zstd"
+recipe-sha256 = "1bf4d6e587dc55e6e7dc4c76e3e850a6cb4825b7da1f7e2dded6c6cbb97e5dd5"
+recipe-source = { commit = "1ea16409510454b8ee22a4a83ff304e3e03808c4", git = "https://github.com/otok-dev/recipes", path = "recipes/zstd/1.5/linux" }
+revision = 1
+source = { sha256 = "eb33e51f49a15e023950cd7825ca74a4a2b43db8354825ac24fc1b7ee09e6fa3", url = "https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz" }
+variant = "linux"
+version = "1.5.7"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
