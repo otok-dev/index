@@ -1,0 +1,25 @@
+api = 1
+description = "flex, the fast lexical analyzer generator: win_flex of winflexbison."
+format = 1
+keywords = [ "lexer", "parser", "generator", "tool" ]
+library = "flex"
+license = "BSD-3-Clause-flex AND GPL-3.0-or-later"
+published = 2026-11-14T01:47:03Z
+recipe = "apotocki/flex"
+recipe-sha256 = "89392cbd81b2bd4b46e3e3f49eb9bf684e7f3a8c73a18fe0790bbaadb4348760"
+recipe-source = { commit = "5da01945f38d9afb64726f84ba66490b8096ee16", git = "https://github.com/otok-dev/recipes.git", path = "recipes/flex/2.6/windows" }
+revision = 1
+source = { sha256 = "8e1b71e037b524ba3f576babb0cf59182061df1f19cd86112f085a882560f60b", url = "https://github.com/lexxmark/winflexbison/archive/refs/tags/v2.5.25.tar.gz" }
+variant = "windows"
+version = "2.6.4"
+
+[platforms]
+build-on = [ "windows/msvc" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "flex" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
