@@ -1,0 +1,22 @@
+api = 1
+cxx-standard = ">= 17"
+description = "inja, a template engine for modern C++ in the spirit of Jinja2, over nlohmann/json: loops, conditions, includes, inheritance and callbacks."
+format = 1
+keywords = [ "template", "template-engine", "jinja", "json", "cpp", "header-only" ]
+library = "inja"
+license = "MIT"
+recipe = "apotocki/inja"
+recipe-sha256 = "d319dc7dd5159da54811c10ef380197cefa8b547a739891f51555244bde8b478"
+recipe-source = { commit = "1ea16409510454b8ee22a4a83ff304e3e03808c4", git = "https://github.com/otok-dev/recipes.git", path = "recipes/inja/3.5/android" }
+revision = 1
+source = { commit = "7d1b4600b68595085a949743331c2e5673f511ea", git = "https://github.com/pantor/inja", tag = "v3.5.0" }
+variant = "android"
+version = "3.5.0"
+
+[deps.nlohmann-json]
+default-recipe = "apotocki/nlohmann-json"
+version = ">= 3.11"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
