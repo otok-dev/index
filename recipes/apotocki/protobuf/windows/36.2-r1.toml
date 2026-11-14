@@ -1,0 +1,46 @@
+api = 1
+cxx-standard = ">= 17"
+description = "Protocol Buffers, Google's data interchange format: the C++ runtime, and protoc for the build machine."
+format = 1
+keywords = [ "protobuf", "serialization", "rpc" ]
+library = "protobuf"
+license = "BSD-3-Clause"
+linkage = [ "static" ]
+published = 2026-11-14T01:13:15Z
+recipe = "apotocki/protobuf"
+recipe-sha256 = "cfc933edd2760da2ef98496d8f0ccaee599d90c71cf9ab9cce34b42ed3b1918a"
+recipe-source = { commit = "92d81fe0aabb0cd949726f5b8011beb83fc2ae02", git = "https://github.com/otok-dev/recipes.git", path = "recipes/protobuf/36/windows" }
+revision = 1
+source = { sha256 = "3d9642a662d10e68ebae5e53f14dcce5105684212d5078f8e0d47d1ab3ae6b64", url = "https://github.com/protocolbuffers/protobuf/releases/download/v36.2/protobuf-36.2.tar.gz" }
+variant = "windows"
+version = "36.2"
+
+[deps.abseil]
+default-recipe = "apotocki/abseil"
+version = ">= 20260000"
+
+[deps.zlib]
+default-recipe = "apotocki/zlib"
+version = ">= 1.2"
+when = { option = "zlib" }
+
+[options.runtime]
+default = "full"
+type = "enum"
+values = [ "full", "lite" ]
+
+[options.zlib]
+additive = true
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "protoc" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
