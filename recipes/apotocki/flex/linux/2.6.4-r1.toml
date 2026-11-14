@@ -1,0 +1,27 @@
+api = 1
+description = "flex, the fast lexical analyzer generator, built from source."
+format = 1
+keywords = [ "lexer", "parser", "generator", "tool" ]
+library = "flex"
+license = "BSD-3-Clause-flex AND GPL-3.0-or-later"
+recipe = "apotocki/flex"
+recipe-sha256 = "e7b2955321dd1314cd5eede463389d5ce5ef489d4e03e94c084b196f54f6674c"
+recipe-source = { commit = "b7e558f8376894485944baffded9182f05fb8e61", git = "https://github.com/otok-dev/recipes", path = "recipes/flex/2.6/linux" }
+revision = 1
+source = { sha256 = "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995", url = "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz" }
+variant = "linux"
+version = "2.6.4"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[tool]
+programs = [ "flex" ]
+
+[tool-deps.m4]
+default-recipe = "apotocki/m4"
+version = ">= 1.4.6"
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
