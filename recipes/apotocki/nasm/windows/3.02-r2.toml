@@ -1,0 +1,20 @@
+api = 1
+description = "NASM, the Netwide Assembler, built from source."
+format = 1
+keywords = [ "assembler", "tool" ]
+library = "nasm"
+license = "BSD-2-Clause"
+recipe = "apotocki/nasm"
+recipe-sha256 = "ae4a2c394a17fd8a75017d374bc8cb12da78e5f1727f89662f8a20e8d5803b4f"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/nasm/3.02/windows" }
+revision = 2
+source = { sha256 = "87336eba53b4acfe917424ab5d500d2b0054d9f5148d35c2273ccf2cfb712f0d", url = "https://www.nasm.us/pub/nasm/releasebuilds/3.02/nasm-3.02.tar.xz" }
+variant = "windows"
+version = "3.02"
+
+[platforms]
+build-on = [ "windows/msvc" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "nasm" ]

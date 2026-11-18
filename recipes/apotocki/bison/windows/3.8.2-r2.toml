@@ -1,0 +1,24 @@
+api = 1
+description = "GNU Bison, the parser generator: win_bison of winflexbison."
+format = 1
+keywords = [ "parser", "generator", "yacc", "tool" ]
+library = "bison"
+license = "GPL-3.0-or-later"
+recipe = "apotocki/bison"
+recipe-sha256 = "49065b42ef0fa777628f2eb3d3d8e47acb4ec0bc1e49c0efe71ce5d72d0cfc47"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/bison/3.8/windows" }
+revision = 2
+source = { sha256 = "8e1b71e037b524ba3f576babb0cf59182061df1f19cd86112f085a882560f60b", url = "https://github.com/lexxmark/winflexbison/archive/refs/tags/v2.5.25.tar.gz" }
+variant = "windows"
+version = "3.8.2"
+
+[platforms]
+build-on = [ "windows/msvc" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "bison" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

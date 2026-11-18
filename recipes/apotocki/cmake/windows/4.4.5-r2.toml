@@ -1,0 +1,30 @@
+api = 1
+description = "CMake, the cross-platform build system generator, as Kitware releases it."
+format = 1
+keywords = [ "build", "tool" ]
+library = "cmake"
+license = "BSD-3-Clause"
+recipe = "apotocki/cmake"
+recipe-sha256 = "ca8a5c848f1ff1302a29a2465d4690b808e4cbe3edabe90fffa48c7e5a0f27ab"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/cmake/4.4/windows" }
+revision = 2
+source = { sha256 = "a0c54c88abb8078dd8eccadb717fc6bb194bf18e7d44c86309910288886e04e2", url = "https://github.com/Kitware/CMake/releases/download/v4.4.5/cmake-4.4.5.tar.gz" }
+variant = "windows"
+version = "4.4.5"
+
+[platforms]
+build-on = [ "windows/msvc", "windows/clang-cl" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "cmake", "ctest", "cpack" ]
+
+[[resource]]
+name = "windows_x86_64"
+sha256 = "326c826486d46a23cf9d5a1c9ee3a567d427bdd02c4a34071937a2a675cff004"
+url = "https://github.com/Kitware/CMake/releases/download/v4.4.5/cmake-4.4.5-windows-x86_64.zip"
+
+[[resource]]
+name = "windows_arm64"
+sha256 = "b0b54ebdd3e7b9f5ad733d865541d6e0a3b774182e4318b26890221432835359"
+url = "https://github.com/Kitware/CMake/releases/download/v4.4.5/cmake-4.4.5-windows-arm64.zip"
