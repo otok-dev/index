@@ -1,0 +1,25 @@
+api = 1
+description = "GN, the meta-build system that generates Ninja build files (Chromium, Skia)."
+format = 1
+keywords = [ "build", "tool" ]
+library = "gn"
+license = "BSD-3-Clause"
+published = 2026-11-18T18:33:31Z
+recipe = "apotocki/gn"
+recipe-sha256 = "a9b608485c720f7f7450968eb4078b200b16f45ad665341a3e4598e0d50ea186"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/gn/2175/windows" }
+revision = 2
+source = { commit = "b2afae122eeb6ce09c52d63f67dc53fc517dbdc8", git = "https://gn.googlesource.com/gn" }
+variant = "windows"
+version = "2175"
+
+[platforms]
+build-on = [ "windows/msvc", "windows/clang-cl" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "gn" ]
+
+[toolchains]
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
+python = { default-recipe = "apotocki/python", version = ">= 3.6" }

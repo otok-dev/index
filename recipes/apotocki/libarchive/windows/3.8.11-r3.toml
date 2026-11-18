@@ -1,0 +1,103 @@
+api = 1
+description = "libarchive, a library reading and writing tar, cpio, zip, 7-Zip, RAR, ISO 9660, XAR and other archive and compression formats, with bsdtar and bsdunzip."
+format = 1
+keywords = [ "archive", "tar", "zip", "7z", "compression" ]
+library = "libarchive"
+license = "BSD-2-Clause AND BSD-3-Clause AND (CC0-1.0 OR OpenSSL OR Apache-2.0)"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-18T18:33:31Z
+recipe = "apotocki/libarchive"
+recipe-sha256 = "574fe06a4340236bb02d91cab6f222ecca5c91180e65d4a9f3bad20da8b92397"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libarchive/3.8/windows" }
+revision = 3
+source = { mirrors = [ "https://www.libarchive.org/downloads/libarchive-3.8.11.tar.xz" ], sha256 = "a3dc0872b1b39da34dc18ef1b944f0f11ffd37425d70ae04be679279f1cf43d2", url = "https://github.com/libarchive/libarchive/releases/download/v3.8.11/libarchive-3.8.11.tar.xz" }
+variant = "windows"
+version = "3.8.11"
+
+[deps.bzip2]
+default-recipe = "apotocki/bzip2"
+version = ">= 1.0"
+when = { option = "bzip2" }
+
+[deps.expat]
+default-recipe = "apotocki/expat"
+linkage = "static"
+version = ">= 2.0"
+when = { is = "expat", option = "xml" }
+
+[deps.libxml2]
+default-recipe = "apotocki/libxml2"
+linkage = "static"
+version = ">= 2.9"
+when = { is = "libxml2", option = "xml" }
+
+[deps.lz4]
+default-recipe = "apotocki/lz4"
+version = ">= 1.7"
+when = { option = "lz4" }
+
+[deps.lzma]
+default-recipe = "apotocki/lzma"
+version = ">= 5.0"
+when = { option = "lzma" }
+
+[deps.openssl]
+default-recipe = "apotocki/openssl"
+version = ">= 3.0"
+when = { is = "openssl", option = "crypto" }
+
+[deps.zlib]
+default-recipe = "apotocki/zlib"
+version = ">= 1.2.1"
+when = { option = "zlib" }
+
+[deps.zstd]
+default-recipe = "apotocki/zstd"
+version = ">= 1.4"
+when = { option = "zstd" }
+
+[options.bzip2]
+additive = true
+default = true
+type = "bool"
+
+[options.crypto]
+default = "cng"
+type = "enum"
+values = [ "cng", "openssl", "none" ]
+
+[options.lz4]
+additive = true
+default = true
+type = "bool"
+
+[options.lzma]
+additive = true
+default = true
+type = "bool"
+
+[options.xml]
+default = "xmllite"
+type = "enum"
+values = [ "xmllite", "libxml2", "expat", "none" ]
+
+[options.zlib]
+additive = true
+default = true
+type = "bool"
+
+[options.zstd]
+additive = true
+default = true
+type = "bool"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "bsdtar", "bsdunzip" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
