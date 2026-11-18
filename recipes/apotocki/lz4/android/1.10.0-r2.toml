@@ -1,0 +1,22 @@
+api = 1
+description = "LZ4, an extremely fast lossless compression library."
+format = 1
+keywords = [ "compression", "lz4" ]
+library = "lz4"
+license = "BSD-2-Clause"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/lz4"
+recipe-sha256 = "ade54a71201b92cb6141a948e7e9ec10f312cfc09fb92060bf7547e528888552"
+recipe-source = { commit = "51bcfe2aa8cfb530304ac3db16156d6a875d23f6", git = "https://github.com/otok-dev/recipes.git", path = "recipes/lz4/1.10/android" }
+revision = 2
+source = { commit = "ebb370ca83af193212df4dcbadcc5d87bc0de2f0", git = "https://github.com/lz4/lz4", tag = "v1.10.0" }
+variant = "android"
+version = "1.10.0"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
