@@ -1,0 +1,22 @@
+api = 1
+description = "libbz2, the bzip2 compression library."
+format = 1
+keywords = [ "compression", "bzip2" ]
+library = "bzip2"
+license = "bzip2-1.0.6"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/bzip2"
+recipe-sha256 = "5c24bfa8e3134a9a0d645f881ee1d59bdbbce81a97fd6f1c8e1e7b26f269312b"
+recipe-source = { commit = "12a2a825458298bb82d389747fe69eb6f8c97a02", git = "https://github.com/otok-dev/recipes.git", path = "recipes/bzip2/1.0/android" }
+revision = 2
+source = { sha256 = "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269", url = "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz" }
+variant = "android"
+version = "1.0.8"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
