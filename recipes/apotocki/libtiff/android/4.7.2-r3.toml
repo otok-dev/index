@@ -1,0 +1,68 @@
+api = 1
+description = "libtiff, the library for reading and writing TIFF images."
+format = 1
+keywords = [ "image", "tiff", "codec" ]
+library = "libtiff"
+license = "libtiff"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/libtiff"
+recipe-sha256 = "4deef8e821c22d34e8d535ce20473fa28075a2c5a56271b85f3818a6e56e0352"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libtiff/4.7/android" }
+revision = 3
+source = { sha256 = "672bd7d10aee4606171afb864f3570b83340f6a33e2c186dc0512f7145ffdf6a", url = "https://download.osgeo.org/libtiff/tiff-4.7.2.tar.gz" }
+variant = "android"
+version = "4.7.2"
+
+[deps.libjpeg-turbo]
+default-recipe = "apotocki/libjpeg-turbo"
+requires-options = { api = "libjpeg" }
+version = ">= 3.0"
+when = { option = "jpeg" }
+
+[deps.libwebp]
+default-recipe = "apotocki/libwebp"
+version = ">= 1.0"
+when = { option = "webp" }
+
+[deps.lzma]
+default-recipe = "apotocki/lzma"
+version = ">= 5.2"
+when = { option = "lzma" }
+
+[deps.zstd]
+default-recipe = "apotocki/zstd"
+version = ">= 1.4"
+when = { option = "zstd" }
+
+[options.jpeg]
+additive = true
+default = false
+type = "bool"
+
+[options.lzma]
+additive = true
+default = false
+type = "bool"
+
+[options.webp]
+additive = true
+default = false
+type = "bool"
+
+[options.zlib]
+additive = true
+default = true
+type = "bool"
+
+[options.zstd]
+additive = true
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
