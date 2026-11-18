@@ -1,0 +1,27 @@
+api = 1
+description = "OpenSSL (libssl, libcrypto), built from source."
+format = 1
+keywords = [ "tls", "crypto" ]
+library = "openssl"
+license = "Apache-2.0"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-18T17:44:37Z
+recipe = "apotocki/openssl"
+recipe-sha256 = "0b0349053134ac6e27be210af3a01436ff81c074e75854a85e0bb5cf08a26eeb"
+recipe-source = { commit = "af1bbf983e2b29845be39c055995dcba366831ba", git = "https://github.com/otok-dev/recipes.git", path = "recipes/openssl/4.1/android" }
+revision = 2
+source = { commit = "2f4e3a5fec05394068cfa7379890ab552483a8a6", git = "https://github.com/openssl/openssl", tag = "openssl-4.1.0" }
+variant = "android"
+version = "4.1.0"
+
+[options.no-deprecated]
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
+perl = { default-recipe = "apotocki/perl", version = ">= 5.30", when = { environment = [ "linux/ndk", "macos/ndk" ] } }
