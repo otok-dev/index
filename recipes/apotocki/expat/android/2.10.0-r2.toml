@@ -1,0 +1,23 @@
+api = 1
+description = "Expat, a stream-oriented XML parser library written in C."
+format = 1
+keywords = [ "xml", "parser" ]
+library = "expat"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-18T17:11:09Z
+recipe = "apotocki/expat"
+recipe-sha256 = "f01ea2d407fa4d7324f35e04e12075bb3d0afc34b0ac68824069fbe45603daee"
+recipe-source = { commit = "12a2a825458298bb82d389747fe69eb6f8c97a02", git = "https://github.com/otok-dev/recipes.git", path = "recipes/expat/2.10/android" }
+revision = 2
+source = { sha256 = "c624ba2998fc65df1163a49641ff3f9ab73138b11641d92c86bee0fb01b1bc7f", url = "https://github.com/libexpat/libexpat/releases/download/R_2_10_0/expat-2.10.0.tar.xz" }
+variant = "android"
+version = "2.10.0"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
