@@ -1,0 +1,21 @@
+api = 1
+description = "libidn2, an implementation of the Internationalized Domain Names (IDNA 2008 and TR46) specifications."
+format = 1
+keywords = [ "idn", "idna", "domain", "punycode" ]
+library = "libidn2"
+license = "(GPL-2.0-or-later OR LGPL-3.0-or-later) AND Unicode-DFS-2016"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/libidn2"
+recipe-sha256 = "dfe8f6d0b05a4c3b6695ad01d1efd47012122311e1dca94198ff4b5bff23e68a"
+recipe-source = { commit = "0e0ec5a4fab572eca6eabb6f31874c4ec945474c", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libidn2/2.3/android" }
+revision = 1
+source = { mirrors = [ "https://ftpmirror.gnu.org/gnu/libidn/libidn2-2.3.8.tar.gz" ], sha256 = "f557911bf6171621e1f72ff35f5b1825bb35b52ed45325dcdee931e5d3c0787a", url = "https://ftp.gnu.org/gnu/libidn/libidn2-2.3.8.tar.gz" }
+variant = "android"
+version = "2.3.8"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
