@@ -1,0 +1,25 @@
+api = 1
+description = "giflib, the library for reading and writing GIF images."
+format = 1
+keywords = [ "image", "gif", "codec" ]
+library = "giflib"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/giflib"
+recipe-sha256 = "24af87f25237aa029d253acf63609bc62edfcd92597f08bc49f0a37d106111df"
+recipe-source = { commit = "0e0ec5a4fab572eca6eabb6f31874c4ec945474c", git = "https://github.com/otok-dev/recipes.git", path = "recipes/giflib/5.2/android" }
+revision = 2
+source = { sha256 = "be7ffbd057cadebe2aa144542fd90c6838c6a083b5e8a9048b8ee3b66b29d5fb", url = "https://downloads.sourceforge.net/giflib/giflib-5.2.2.tar.gz" }
+variant = "android"
+version = "5.2.2"
+
+[cmake.GIF]
+targets = { "GIF::GIF" = "GIF" }
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
