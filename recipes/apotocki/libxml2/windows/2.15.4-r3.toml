@@ -1,0 +1,33 @@
+api = 1
+description = "libxml2, the XML C parser and toolkit of GNOME."
+format = 1
+keywords = [ "xml", "html", "xpath", "parser" ]
+library = "libxml2"
+license = "MIT"
+linkage = [ "static" ]
+published = 2026-11-18T22:54:41Z
+recipe = "apotocki/libxml2"
+recipe-sha256 = "26815049df5745765924987cacc17d269d9e9e353e219536d708036d505f738a"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libxml2/2.15/windows" }
+revision = 3
+source = { sha256 = "98087fd181d9070724f3fbc65c7377db03038eb92bd882374daff44940138821", url = "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.4.tar.xz" }
+variant = "windows"
+version = "2.15.4"
+
+[deps.zlib]
+default-recipe = "apotocki/zlib"
+version = ">= 1.2"
+when = { option = "zlib" }
+
+[options.zlib]
+additive = true
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
