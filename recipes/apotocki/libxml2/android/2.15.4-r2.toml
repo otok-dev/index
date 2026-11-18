@@ -1,0 +1,28 @@
+api = 1
+description = "libxml2, the XML C parser and toolkit of GNOME."
+format = 1
+keywords = [ "xml", "html", "xpath", "parser" ]
+library = "libxml2"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-18T17:32:25Z
+recipe = "apotocki/libxml2"
+recipe-sha256 = "80b8c1f518433987025ed37dbd4cf493e9427ae9ba6a1b3f9222a50507bf8e88"
+recipe-source = { commit = "51bcfe2aa8cfb530304ac3db16156d6a875d23f6", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libxml2/2.15/android" }
+revision = 2
+source = { sha256 = "98087fd181d9070724f3fbc65c7377db03038eb92bd882374daff44940138821", url = "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.4.tar.xz" }
+variant = "android"
+version = "2.15.4"
+
+[options.zlib]
+additive = true
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
