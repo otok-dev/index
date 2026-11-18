@@ -1,0 +1,38 @@
+api = 1
+cxx-standard = ">= 17"
+description = "Protocol Buffers, Google's data interchange format: the C++ runtime."
+format = 1
+keywords = [ "protobuf", "serialization", "rpc" ]
+library = "protobuf"
+license = "BSD-3-Clause"
+linkage = [ "static" ]
+published = 2026-11-18T17:32:59Z
+recipe = "apotocki/protobuf"
+recipe-sha256 = "5e8579e4356076b07ac7f4d2d1003d6baffd380d738da7ea8f9a99276eb5c50d"
+recipe-source = { commit = "51bcfe2aa8cfb530304ac3db16156d6a875d23f6", git = "https://github.com/otok-dev/recipes.git", path = "recipes/protobuf/36/android" }
+revision = 2
+source = { sha256 = "3d9642a662d10e68ebae5e53f14dcce5105684212d5078f8e0d47d1ab3ae6b64", url = "https://github.com/protocolbuffers/protobuf/releases/download/v36.2/protobuf-36.2.tar.gz" }
+variant = "android"
+version = "36.2"
+
+[deps.abseil]
+default-recipe = "apotocki/abseil"
+version = ">= 20260000"
+
+[options.runtime]
+default = "full"
+type = "enum"
+values = [ "full", "lite" ]
+
+[options.zlib]
+additive = true
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
