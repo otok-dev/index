@@ -1,0 +1,45 @@
+api = 1
+cxx-standard = ">= 11"
+description = "JSON for Modern C++: a header-only JSON library with an intuitive syntax, JSON Pointer and Patch, and binary formats (BSON, CBOR, MessagePack, UBJSON, BJData)."
+format = 1
+keywords = [ "json", "parser", "serializer", "cbor", "msgpack", "cpp", "header-only" ]
+library = "nlohmann-json"
+license = "MIT"
+published = 2026-11-18T17:33:55Z
+recipe = "apotocki/nlohmann-json"
+recipe-sha256 = "a4bb9f5d8275134a47ed48b51cad14fe1fcbf7f677d2d7ceb12b97bc6518ea6d"
+recipe-source = { commit = "51bcfe2aa8cfb530304ac3db16156d6a875d23f6", git = "https://github.com/otok-dev/recipes.git", path = "recipes/nlohmann-json/3.12/android" }
+revision = 2
+source = { commit = "55f93686c01528224f448c19128836e7df245f72", git = "https://github.com/nlohmann/json", tag = "v3.12.0" }
+variant = "android"
+version = "3.12.0"
+
+[options.diagnostic-positions]
+additive = true
+default = false
+type = "bool"
+
+[options.diagnostics]
+additive = true
+default = false
+type = "bool"
+
+[options.disable-enum-serialization]
+default = false
+type = "bool"
+
+[options.global-udls]
+default = true
+type = "bool"
+
+[options.implicit-conversions]
+default = true
+type = "bool"
+
+[options.legacy-discarded-value-comparison]
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
