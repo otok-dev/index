@@ -1,0 +1,23 @@
+api = 1
+description = "Perl 5, built from source."
+format = 1
+keywords = [ "perl", "interpreter", "tool" ]
+library = "perl"
+license = "Artistic-1.0-Perl OR GPL-1.0-or-later"
+recipe = "apotocki/perl"
+recipe-sha256 = "d42a44cd45c71a4aaad5cb3e217a53624bb117db1530c0d6f11b853e3de26fca"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/perl/5.44/apple" }
+revision = 2
+source = { sha256 = "505cf43912e9480495c344c70260452e32aa2a73c546a026b3f100053b23ce91", url = "https://www.cpan.org/src/5.0/perl-5.44.0.tar.xz" }
+variant = "apple"
+version = "5.44.0"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "macosx" ]
+
+[tool]
+programs = [ "perl" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }

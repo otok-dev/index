@@ -1,0 +1,20 @@
+api = 1
+description = "GNU Make, built from source."
+format = 1
+keywords = [ "build", "tool" ]
+library = "make"
+license = "GPL-3.0-or-later"
+recipe = "apotocki/make"
+recipe-sha256 = "15bcbd12b61741c00295cbdbbad2975afa2808432d001cb840dc687962693854"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/make/4.4/apple" }
+revision = 2
+source = { mirrors = [ "https://ftpmirror.gnu.org/gnu/make/make-4.4.1.tar.gz" ], sha256 = "dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3", url = "https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz" }
+variant = "apple"
+version = "4.4.1"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "macosx" ]
+
+[tool]
+programs = [ "make" ]

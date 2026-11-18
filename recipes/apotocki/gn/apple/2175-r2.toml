@@ -1,0 +1,24 @@
+api = 1
+description = "GN, the meta-build system that generates Ninja build files (Chromium, Skia)."
+format = 1
+keywords = [ "build", "tool" ]
+library = "gn"
+license = "BSD-3-Clause"
+recipe = "apotocki/gn"
+recipe-sha256 = "d3132cb328e913ec7fe5840301af6625f2c17dbc2ed17b742e1f60500daf1066"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/gn/2175/apple" }
+revision = 2
+source = { commit = "b2afae122eeb6ce09c52d63f67dc53fc517dbdc8", git = "https://gn.googlesource.com/gn" }
+variant = "apple"
+version = "2175"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "macosx" ]
+
+[tool]
+programs = [ "gn" ]
+
+[toolchains]
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
+python = { default-recipe = "apotocki/python", version = ">= 3.6" }

@@ -1,0 +1,27 @@
+api = 1
+description = "flex, the fast lexical analyzer generator, built from source."
+format = 1
+keywords = [ "lexer", "parser", "generator", "tool" ]
+library = "flex"
+license = "BSD-3-Clause-flex AND GPL-3.0-or-later"
+recipe = "apotocki/flex"
+recipe-sha256 = "c49bdc9ebe9fb922b3567117d5edb3a6956d0ed15c17eeda94fde50f0987a3f1"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/flex/2.6/apple" }
+revision = 2
+source = { sha256 = "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995", url = "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz" }
+variant = "apple"
+version = "2.6.4"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "macosx" ]
+
+[tool]
+programs = [ "flex" ]
+
+[tool-deps.m4]
+default-recipe = "apotocki/m4"
+version = ">= 1.4.6"
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
