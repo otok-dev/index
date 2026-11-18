@@ -1,0 +1,22 @@
+api = 1
+description = "libwebp, the WebP image format codec, with the demux and mux libraries and sharp YUV conversion."
+format = 1
+keywords = [ "image", "webp", "codec" ]
+library = "libwebp"
+license = "BSD-3-Clause"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/libwebp"
+recipe-sha256 = "ad99ab03ad1d9f5852a8dba7e5d9c8467653c5839a202ca55170f96b3522c681"
+recipe-source = { commit = "51bcfe2aa8cfb530304ac3db16156d6a875d23f6", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libwebp/1.6/windows" }
+revision = 2
+source = { sha256 = "e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564", url = "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz" }
+variant = "windows"
+version = "1.6.0"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
