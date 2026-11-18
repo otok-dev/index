@@ -1,0 +1,23 @@
+api = 1
+description = "nghttp3, an implementation of RFC 9114 HTTP/3 mapping over QUIC and RFC 9204 QPACK in C."
+format = 1
+keywords = [ "http3", "quic", "qpack", "http" ]
+library = "nghttp3"
+license = "MIT"
+linkage = [ "static" ]
+published = 2026-11-18T17:50:21Z
+recipe = "apotocki/nghttp3"
+recipe-sha256 = "84d2eb98a2030f84a38955aa1082a5f025515b42457e2ec1da4334ec8694a3db"
+recipe-source = { commit = "af1bbf983e2b29845be39c055995dcba366831ba", git = "https://github.com/otok-dev/recipes.git", path = "recipes/nghttp3/1.19/windows" }
+revision = 2
+source = { sha256 = "228e17f5cc3d4de7bfced9912bd09de30e7f45741cc47503cf88d3fa9209e155", url = "https://github.com/ngtcp2/nghttp3/releases/download/v1.19.0/nghttp3-1.19.0.tar.xz" }
+variant = "windows"
+version = "1.19.0"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
