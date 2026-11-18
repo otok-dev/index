@@ -1,0 +1,22 @@
+api = 1
+cxx-standard = ">= 17"
+description = "inja, a template engine for modern C++ in the spirit of Jinja2, over nlohmann/json: loops, conditions, includes, inheritance and callbacks."
+format = 1
+keywords = [ "template", "template-engine", "jinja", "json", "cpp", "header-only" ]
+library = "inja"
+license = "MIT"
+recipe = "apotocki/inja"
+recipe-sha256 = "599c11dfc22275acfa38242517f04f1cfaee21abe1d6fd8e540b9c96c7fae695"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/inja/3.5/windows" }
+revision = 3
+source = { commit = "7d1b4600b68595085a949743331c2e5673f511ea", git = "https://github.com/pantor/inja", tag = "v3.5.0" }
+variant = "windows"
+version = "3.5.0"
+
+[deps.nlohmann-json]
+default-recipe = "apotocki/nlohmann-json"
+version = ">= 3.11"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
