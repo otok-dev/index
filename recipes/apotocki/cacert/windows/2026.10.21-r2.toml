@@ -1,0 +1,33 @@
+api = 1
+description = "The root certificates of Mozilla's CA Certificate Program, as a PEM bundle."
+format = 1
+keywords = [ "certificates", "ca", "tls" ]
+library = "cacert"
+license = "MPL-2.0"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/cacert"
+recipe-sha256 = "abd6c09d7d17b4009fe34ec0fd20400dca66c3cbd85cbd1147d0873e9d2cee18"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/cacert/2026/windows" }
+revision = 2
+source = { sha256 = "8dadd7d2536a314f982ad05a651b713f426bf7d02cc2c76cffb9796f2218e6c5", url = "https://curl.se/download/curl-8.23.0.tar.xz" }
+variant = "windows"
+version = "2026.10.21"
+
+[options.data]
+default = "static"
+type = "enum"
+values = [ "static", "file" ]
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
+perl = { default-recipe = "apotocki/perl", version = ">= 5.30" }
+
+[[resource]]
+name = "certdata"
+sha256 = "3ec2b4d240dc12c747eaf450061db84af757c483bbda302f9e29ceb5d70be510"
+url = "https://raw.githubusercontent.com/mozilla-firefox/firefox/7ff62457dcf126523608e2f4b90d232d49d58185/security/nss/lib/ckfw/builtins/certdata.txt"

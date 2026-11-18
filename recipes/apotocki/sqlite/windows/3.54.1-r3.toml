@@ -1,0 +1,42 @@
+api = 1
+description = "SQLite, a self-contained SQL database engine."
+format = 1
+keywords = [ "database", "sql", "sqlite" ]
+library = "sqlite"
+license = "blessing"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/sqlite"
+recipe-sha256 = "c15beff5a24c04bf5f35a7328989ad7a822234e3ae54236b09809d1147549e57"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/sqlite/3.54/windows" }
+revision = 3
+source = { sha256 = "0a9c8e34352dad46006aa82836d5383bff9dc6bc9ce5a60553c05aa30e6ad1f9", url = "https://sqlite.org/2026/sqlite-amalgamation-3540100.zip" }
+variant = "windows"
+version = "3.54.1"
+
+[options.column-metadata]
+default = false
+type = "bool"
+
+[options.extensions]
+default = false
+type = "bool"
+
+[options.fts5]
+default = true
+type = "bool"
+
+[options.math]
+default = true
+type = "bool"
+
+[options.rtree]
+default = true
+type = "bool"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
