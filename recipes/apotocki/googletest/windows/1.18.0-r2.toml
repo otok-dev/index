@@ -1,0 +1,26 @@
+api = 1
+cxx-standard = ">= 17"
+description = "GoogleTest and GoogleMock, Google's C++ test framework."
+format = 1
+keywords = [ "testing", "gtest", "gmock" ]
+library = "googletest"
+license = "BSD-3-Clause"
+linkage = [ "static" ]
+recipe = "apotocki/googletest"
+recipe-sha256 = "c77b08ad612a8632ae45156d590c7e6d3f86af1a49fe82617edeb11dcf6b803e"
+recipe-source = { commit = "0e0ec5a4fab572eca6eabb6f31874c4ec945474c", git = "https://github.com/otok-dev/recipes.git", path = "recipes/googletest/1.18/windows" }
+revision = 2
+source = { commit = "063de7e9578f82b369302001269680b4b1553359", git = "https://github.com/google/googletest", tag = "v1.18.0" }
+variant = "windows"
+version = "1.18.0"
+
+[cmake.GTest]
+targets = { "GTest::GTest" = "GTest", "GTest::Main" = "GTestMain", "GTest::gmock" = "GMock", "GTest::gmock_main" = "GMockMain", "GTest::gtest" = "GTest", "GTest::gtest_main" = "GTestMain" }
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
