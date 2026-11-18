@@ -1,0 +1,37 @@
+api = 1
+description = "libssh2, a client-side C library implementing the SSH2 protocol."
+format = 1
+keywords = [ "ssh", "sftp" ]
+library = "libssh2"
+license = "BSD-3-Clause"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-18T17:49:06Z
+recipe = "apotocki/libssh2"
+recipe-sha256 = "cb5acabcc3da69a14ceb595398c67dee2c7680928931d72cd1ec0d419d2648c3"
+recipe-source = { commit = "af1bbf983e2b29845be39c055995dcba366831ba", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libssh2/1.11/windows" }
+revision = 2
+source = { sha256 = "d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658f7", url = "https://libssh2.org/download/libssh2-1.11.1.tar.gz" }
+variant = "windows"
+version = "1.11.1"
+
+[deps.openssl]
+default-recipe = "apotocki/openssl"
+version = ">= 3.0"
+when = { is = "openssl", option = "crypto" }
+
+[deps.zlib]
+default-recipe = "apotocki/zlib"
+version = ">= 1.2"
+
+[options.crypto]
+default = "wincng"
+type = "enum"
+values = [ "wincng", "openssl" ]
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
