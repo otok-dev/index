@@ -1,0 +1,74 @@
+api = 1
+description = "libtiff, the library for reading and writing TIFF images."
+format = 1
+keywords = [ "image", "tiff", "codec" ]
+library = "libtiff"
+license = "libtiff"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-18T17:20:42Z
+recipe = "apotocki/libtiff"
+recipe-sha256 = "85259e95562cf069c5baccb7d65b2ea5e5dc6bd477f6702456a4ebac71304632"
+recipe-source = { commit = "51bcfe2aa8cfb530304ac3db16156d6a875d23f6", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libtiff/4.7/windows" }
+revision = 2
+source = { sha256 = "672bd7d10aee4606171afb864f3570b83340f6a33e2c186dc0512f7145ffdf6a", url = "https://download.osgeo.org/libtiff/tiff-4.7.2.tar.gz" }
+variant = "windows"
+version = "4.7.2"
+
+[deps.libjpeg-turbo]
+default-recipe = "apotocki/libjpeg-turbo"
+requires-options = { api = "libjpeg" }
+version = ">= 3.0"
+when = { option = "jpeg" }
+
+[deps.libwebp]
+default-recipe = "apotocki/libwebp"
+version = ">= 1.0"
+when = { option = "webp" }
+
+[deps.lzma]
+default-recipe = "apotocki/lzma"
+version = ">= 5.2"
+when = { option = "lzma" }
+
+[deps.zlib]
+default-recipe = "apotocki/zlib"
+version = ">= 1.2"
+when = { option = "zlib" }
+
+[deps.zstd]
+default-recipe = "apotocki/zstd"
+version = ">= 1.4"
+when = { option = "zstd" }
+
+[options.jpeg]
+additive = true
+default = false
+type = "bool"
+
+[options.lzma]
+additive = true
+default = false
+type = "bool"
+
+[options.webp]
+additive = true
+default = false
+type = "bool"
+
+[options.zlib]
+additive = true
+default = true
+type = "bool"
+
+[options.zstd]
+additive = true
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
