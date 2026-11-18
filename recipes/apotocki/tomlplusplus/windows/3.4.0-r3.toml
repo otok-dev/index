@@ -1,0 +1,29 @@
+api = 1
+cxx-standard = ">= 17"
+description = "toml++, a TOML parser and serializer for C++17 and later: header-only, or compiled as a library."
+format = 1
+keywords = [ "toml", "parser", "serializer", "config", "cpp" ]
+library = "tomlplusplus"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-18T22:51:47Z
+recipe = "apotocki/tomlplusplus"
+recipe-sha256 = "8aa986a12bebd2894c1a0dd5798c64efcad9b03307a8e3a2568513e24b0319ca"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/tomlplusplus/3.4/windows" }
+revision = 3
+source = { commit = "30172438cee64926dc41fdd9c11fb3ba5b2ba9de", git = "https://github.com/marzer/tomlplusplus", tag = "v3.4.0" }
+variant = "windows"
+version = "3.4.0"
+
+[options.compiled]
+additive = true
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20", when = { option = "compiled" } }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10", when = { option = "compiled" } }
