@@ -1,0 +1,23 @@
+api = 1
+description = "giflib, the library for reading and writing GIF images."
+format = 1
+keywords = [ "image", "gif", "codec" ]
+library = "giflib"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-19T12:42:26Z
+recipe = "apotocki/giflib"
+recipe-sha256 = "3e0857410868cfe66cd1a76e21b208dc8196ae263bbec388b0926a180fcffb35"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes", path = "recipes/giflib/5.2/linux" }
+revision = 2
+source = { sha256 = "be7ffbd057cadebe2aa144542fd90c6838c6a083b5e8a9048b8ee3b66b29d5fb", url = "https://downloads.sourceforge.net/giflib/giflib-5.2.2.tar.gz" }
+variant = "linux"
+version = "5.2.2"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

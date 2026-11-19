@@ -1,0 +1,27 @@
+api = 1
+description = "libacl, the library of POSIX access control lists of Linux file systems."
+format = 1
+keywords = [ "acl", "permissions", "filesystem", "linux" ]
+library = "libacl"
+license = "LGPL-2.1-or-later"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-19T12:42:26Z
+recipe = "apotocki/libacl"
+recipe-sha256 = "236457c6b3061d1cd7d93bdeae2fece8468078feee6d57de645a1d40c815480a"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes", path = "recipes/libacl/2.4/linux" }
+revision = 2
+source = { sha256 = "e661131456d2708a01c614a0f400e11d7d1bfaeb6f3e74b75bb980b72f0161a3", url = "https://download.savannah.nongnu.org/releases/acl/acl-2.4.0.tar.xz" }
+variant = "linux"
+version = "2.4.0"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
+
+[[resource]]
+name = "attr"
+sha256 = "6c8a2148a7b85043b68492bce43316b0e2e214fc4e628c7ede078e76e216330b"
+url = "https://download.savannah.nongnu.org/releases/attr/attr-2.6.0.tar.xz"
