@@ -1,0 +1,22 @@
+api = 1
+description = "LZ4, an extremely fast lossless compression library."
+format = 1
+keywords = [ "compression", "lz4" ]
+library = "lz4"
+license = "BSD-2-Clause"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/lz4"
+recipe-sha256 = "69e050456d3e0e46a18dd7ecb5e8c17e3abc4d0f33a15b62936fd5c1b1ccc49b"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes", path = "recipes/lz4/1.11/linux" }
+revision = 2
+source = { commit = "aa4647fad575d01a874aaaadcdbe8e6a40e072f5", git = "https://github.com/lz4/lz4", tag = "v1.11.1" }
+variant = "linux"
+version = "1.11.1"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
