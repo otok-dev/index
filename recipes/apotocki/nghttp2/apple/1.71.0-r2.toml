@@ -1,0 +1,22 @@
+api = 1
+description = "nghttp2, an implementation of HTTP/2 and its header compression algorithm HPACK in C."
+format = 1
+keywords = [ "http2", "hpack", "http" ]
+library = "nghttp2"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/nghttp2"
+recipe-sha256 = "6e931ca9195887627c3966da98eb9e76303d09fd549d2c7f4718aadd022838e1"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/nghttp2/1.71/apple" }
+revision = 2
+source = { sha256 = "c0f55121d88650e4b9227aec28cebaf664d2417ca60fe70be0f8d38829f52116", url = "https://github.com/nghttp2/nghttp2/releases/download/v1.71.0/nghttp2-1.71.0.tar.xz" }
+variant = "apple"
+version = "1.71.0"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
