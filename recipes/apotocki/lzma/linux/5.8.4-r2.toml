@@ -1,0 +1,23 @@
+api = 1
+description = "liblzma, the LZMA and XZ compression library of XZ Utils."
+format = 1
+keywords = [ "compression", "lzma", "xz" ]
+library = "lzma"
+license = "0BSD"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-19T12:43:49Z
+recipe = "apotocki/lzma"
+recipe-sha256 = "19b0ec2c1a07c011995d347c20d1e4d8e45482695c057d8620445fcb17a9a144"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes", path = "recipes/lzma/5.8/linux" }
+revision = 2
+source = { commit = "d3e650e63c110e830fd5391e7f8b45df0b91d3da", git = "https://github.com/tukaani-project/xz", tag = "v5.8.4" }
+variant = "linux"
+version = "5.8.4"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
