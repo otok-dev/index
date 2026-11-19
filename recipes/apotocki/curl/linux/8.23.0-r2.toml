@@ -1,0 +1,116 @@
+api = 1
+description = "libcurl, the multiprotocol file transfer library."
+format = 1
+keywords = [ "http", "https", "ftp", "network", "transfer", "url" ]
+library = "curl"
+license = "curl"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-19T12:58:36Z
+recipe = "apotocki/curl"
+recipe-sha256 = "85dff9672015b3aba2efbd7708661eb501d4be12c32c0c2707ba16d223e1a37e"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes", path = "recipes/curl/8.23/linux" }
+revision = 2
+source = { sha256 = "8dadd7d2536a314f982ad05a651b713f426bf7d02cc2c76cffb9796f2218e6c5", url = "https://curl.se/download/curl-8.23.0.tar.xz" }
+variant = "linux"
+version = "8.23.0"
+
+[deps.brotli]
+default-recipe = "apotocki/brotli"
+version = ">= 1.0"
+when = { option = "brotli" }
+
+[deps.libidn2]
+default-recipe = "apotocki/libidn2"
+version = ">= 2.0"
+when = { option = "idn" }
+
+[deps.libpsl]
+default-recipe = "apotocki/libpsl"
+version = ">= 0.20"
+when = { option = "psl" }
+
+[deps.libssh2]
+default-recipe = "apotocki/libssh2"
+version = ">= 1.11"
+when = { option = "ssh" }
+
+[deps.mbedtls]
+default-recipe = "apotocki/mbedtls"
+version = ">= 4.0"
+when = { is = "mbedtls", option = "tls" }
+
+[deps.nghttp2]
+default-recipe = "apotocki/nghttp2"
+version = ">= 1.0"
+when = { option = "http2" }
+
+[deps.nghttp3]
+default-recipe = "apotocki/nghttp3"
+version = ">= 1.0"
+when = { option = "http3" }
+
+[deps.ngtcp2]
+default-recipe = "apotocki/ngtcp2"
+version = ">= 1.12"
+when = { option = "http3" }
+
+[deps.openssl]
+default-recipe = "apotocki/openssl"
+version = ">= 3.0"
+when = { is = "openssl", option = "tls" }
+
+[deps.zlib]
+default-recipe = "apotocki/zlib"
+version = ">= 1.2"
+
+[deps.zstd]
+default-recipe = "apotocki/zstd"
+version = ">= 1.4"
+when = { option = "zstd" }
+
+[options.brotli]
+additive = true
+default = false
+type = "bool"
+
+[options.http2]
+additive = true
+default = false
+type = "bool"
+
+[options.http3]
+additive = true
+default = false
+type = "bool"
+
+[options.idn]
+additive = true
+default = false
+type = "bool"
+
+[options.psl]
+additive = true
+default = false
+type = "bool"
+
+[options.ssh]
+default = false
+type = "bool"
+
+[options.tls]
+default = "mbedtls"
+type = "enum"
+values = [ "mbedtls", "openssl", "none" ]
+
+[options.zstd]
+additive = true
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
