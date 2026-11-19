@@ -1,0 +1,23 @@
+api = 1
+description = "liblzma, the LZMA and XZ compression library of XZ Utils."
+format = 1
+keywords = [ "compression", "lzma", "xz" ]
+library = "lzma"
+license = "0BSD"
+linkage = [ "static" ]
+published = 2026-11-19T00:06:38Z
+recipe = "apotocki/lzma"
+recipe-sha256 = "fac329f820d34f27b91f0133f2fd33fc2a7ce79028462d028d5fca3c8e5db32a"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/lzma/5.8/apple" }
+revision = 2
+source = { commit = "d3e650e63c110e830fd5391e7f8b45df0b91d3da", git = "https://github.com/tukaani-project/xz", tag = "v5.8.4" }
+variant = "apple"
+version = "5.8.4"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

@@ -1,0 +1,23 @@
+api = 1
+description = "nghttp3, an implementation of RFC 9114 HTTP/3 mapping over QUIC and RFC 9204 QPACK in C."
+format = 1
+keywords = [ "http3", "quic", "qpack", "http" ]
+library = "nghttp3"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-19T00:06:38Z
+recipe = "apotocki/nghttp3"
+recipe-sha256 = "714f44e9d76715f5b12cdbe56be40915693e79b6fef43c0abe977479d4d14769"
+recipe-source = { commit = "df3f6c49ed5b9892656e02ec512271d6906ebf3d", git = "https://github.com/otok-dev/recipes.git", path = "recipes/nghttp3/1.19/apple" }
+revision = 2
+source = { sha256 = "228e17f5cc3d4de7bfced9912bd09de30e7f45741cc47503cf88d3fa9209e155", url = "https://github.com/ngtcp2/nghttp3/releases/download/v1.19.0/nghttp3-1.19.0.tar.xz" }
+variant = "apple"
+version = "1.19.0"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
