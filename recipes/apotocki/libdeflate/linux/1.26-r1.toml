@@ -1,0 +1,22 @@
+api = 1
+description = "libdeflate, a heavily optimized library of DEFLATE, zlib and gzip compression and decompression of whole buffers."
+format = 1
+keywords = [ "compression", "deflate", "zlib", "gzip" ]
+library = "libdeflate"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/libdeflate"
+recipe-sha256 = "33e5d4659c0ecb0aa4f4e7ee8706f2d9071745d0f2f4419b101fc2f7c991c8de"
+recipe-source = { commit = "542ec462bddc05e373471fcdc564fd2a8a3b591e", git = "https://github.com/otok-dev/recipes", path = "recipes/libdeflate/1.26/linux" }
+revision = 1
+source = { commit = "92e6a0db9fa848d742f9eb286c92afc60f2c3dda", git = "https://github.com/ebiggers/libdeflate", tag = "v1.26" }
+variant = "linux"
+version = "1.26"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

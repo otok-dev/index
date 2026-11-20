@@ -1,0 +1,23 @@
+api = 1
+cxx-standard = ">= 14"
+description = "Imath, the C++ and Python library of 2D and 3D vectors, matrices, quaternions and the half float type of OpenEXR."
+format = 1
+keywords = [ "math", "vector", "matrix", "half", "graphics" ]
+library = "imath"
+license = "BSD-3-Clause"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/imath"
+recipe-sha256 = "5ffdd588a2c42b8d5032982f0bc6c460827f61d45924a8724240ed8d00757376"
+recipe-source = { commit = "542ec462bddc05e373471fcdc564fd2a8a3b591e", git = "https://github.com/otok-dev/recipes", path = "recipes/imath/3.2/android" }
+revision = 1
+source = { commit = "5f27ba266d3ea1565e912570c30b5eafc89959f1", git = "https://github.com/AcademySoftwareFoundation/Imath", tag = "v3.2.3" }
+variant = "android"
+version = "3.2.3"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
