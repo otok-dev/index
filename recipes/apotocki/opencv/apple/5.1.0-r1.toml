@@ -1,0 +1,99 @@
+api = 1
+cxx-standard = ">= 17"
+description = "OpenCV, the library of computer vision: image processing, codecs, features, calibration, video analysis, DNN inference."
+format = 1
+keywords = [ "computer-vision", "image", "image-processing", "video", "dnn", "opencv" ]
+library = "opencv"
+license = "Apache-2.0 AND BSD-3-Clause AND MIT AND MIT-Modern-Variant AND OFL-1.1"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/opencv"
+recipe-sha256 = "d4b2ad8e95cf9db0f55e771172650582017340c7a9b78e21a7effc74861ac7ad"
+recipe-source = { commit = "e3a772053a28c05df0669c705bc553dcca55b6f5", git = "https://github.com/otok-dev/recipes.git", path = "recipes/opencv/5.1/apple" }
+revision = 1
+source = { commit = "e4f78fbcf1a773fbed69e14500e8b734963eb585", git = "https://github.com/opencv/opencv", tag = "5.1.0" }
+variant = "apple"
+version = "5.1.0"
+
+[deps.abseil]
+default-recipe = "apotocki/abseil"
+linkage = "static"
+version = ">= 20260000"
+when = { has = "dnn", option = "modules" }
+
+[deps.ffmpeg]
+default-recipe = "apotocki/ffmpeg"
+version = ">= 6.0"
+when = { not = { platform = [ "watchos", "watchossim" ] }, option = "ffmpeg" }
+
+[deps.libjpeg-turbo]
+default-recipe = "apotocki/libjpeg-turbo"
+requires-options = { api = "libjpeg" }
+version = ">= 3.0"
+when = { has = "jpeg", option = "codecs" }
+
+[deps.libpng]
+default-recipe = "apotocki/libpng"
+version = ">= 1.6"
+when = { has = "png", option = "codecs" }
+
+[deps.libtiff]
+default-recipe = "apotocki/libtiff"
+version = ">= 4.0"
+when = { has = "tiff", option = "codecs" }
+
+[deps.libwebp]
+default-recipe = "apotocki/libwebp"
+version = ">= 1.0"
+when = { has = "webp", option = "codecs" }
+
+[deps.protobuf]
+default-recipe = "apotocki/protobuf"
+linkage = "static"
+requires-options = { runtime = "full" }
+toolchains = [ "protoc" ]
+version = ">= 30"
+when = { has = "dnn", option = "modules" }
+
+[options.codecs]
+additive = true
+default = [ "jpeg", "png" ]
+type = "list"
+values = [ "jpeg", "png", "tiff", "webp" ]
+
+[options.ffmpeg]
+default = false
+type = "bool"
+
+[options.modules]
+additive = true
+default = [ "imgcodecs", "imgproc" ]
+type = "list"
+values = [
+"calib",
+"dnn",
+"features",
+"flann",
+"geometry",
+"imgcodecs",
+"imgproc",
+"objdetect",
+"photo",
+"stereo",
+"stitching",
+"video",
+"videoio"
+]
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
+
+[[resource]]
+commit = "cacea38588eb35de69075a0a1a876b82bfcd88dd"
+git = "https://gitlab.arm.com/kleidi/kleidicv.git"
+name = "kleidicv"
+tag = "26.09"
