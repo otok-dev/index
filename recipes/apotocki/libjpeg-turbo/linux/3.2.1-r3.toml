@@ -1,0 +1,29 @@
+api = 1
+description = "libjpeg-turbo, a JPEG image codec with SIMD acceleration: the libjpeg API and, optionally, the TurboJPEG API."
+format = 1
+keywords = [ "image", "jpeg", "codec" ]
+library = "libjpeg-turbo"
+license = "IJG AND BSD-3-Clause AND Zlib"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-20T12:38:02Z
+recipe = "apotocki/libjpeg-turbo"
+recipe-sha256 = "e1986ae7b4da7df403b0c8e3b2dde41fd69fc305879e77693f2f3f1122edfe4f"
+recipe-source = { commit = "145c82dab63df69c86ad3051c1cfeb8549ab236f", git = "https://github.com/otok-dev/recipes", path = "recipes/libjpeg-turbo/3.2/linux" }
+revision = 3
+source = { sha256 = "c27ad72a68da151177929aa969ae773a2da5ac2af9ce946079314fdac8cece7f", url = "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.2.1/libjpeg-turbo-3.2.1.tar.gz" }
+variant = "linux"
+version = "3.2.1"
+
+[options.api]
+default = "libjpeg"
+type = "enum"
+values = [ "libjpeg", "turbojpeg" ]
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+nasm = { default-recipe = "apotocki/nasm", version = ">= 2.14", when = { arch = [ "x86_64" ] } }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
