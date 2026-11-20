@@ -1,0 +1,23 @@
+api = 1
+cxx-standard = ">= 17"
+description = "Highway, a C++ library of portable SIMD and vector intrinsics, its best code chosen for the CPU at run time."
+format = 1
+keywords = [ "simd", "vector", "performance", "cpu" ]
+library = "highway"
+license = "Apache-2.0 OR BSD-3-Clause"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/highway"
+recipe-sha256 = "d5cc2c8399be8c0d1416835deaf1f4a8272cf40519a51f38251fffca69cf6ca0"
+recipe-source = { commit = "a2ca93c846d647d5cf9e942cee217baf5b2d526f", git = "https://github.com/otok-dev/recipes.git", path = "recipes/highway/1.4/android" }
+revision = 1
+source = { commit = "2607d3b5b0113992fe84d3848859eae13b3b52c1", git = "https://github.com/google/highway", tag = "1.4.0" }
+variant = "android"
+version = "1.4.0"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
