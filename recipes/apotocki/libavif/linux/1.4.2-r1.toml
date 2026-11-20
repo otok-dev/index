@@ -1,0 +1,26 @@
+api = 1
+description = "libavif, the library of AVIF, the AV1 Image File Format: reading AVIF images, their alpha, depth and color properties."
+format = 1
+keywords = [ "image", "avif", "av1", "codec" ]
+library = "libavif"
+license = "BSD-2-Clause AND BSD-3-Clause"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/libavif"
+recipe-sha256 = "31d2cac424801d6ccc532df732e5d8629f6b5c631b3179370c54818a38a87aa7"
+recipe-source = { commit = "ddd0da02173996da128f84ebb572b108de42ded7", git = "https://github.com/otok-dev/recipes", path = "recipes/libavif/1.4/linux" }
+revision = 1
+source = { commit = "c5240fc79fe5c2407e10afd35f5505ef6333ea49", git = "https://github.com/AOMediaCodec/libavif", tag = "v1.4.2" }
+variant = "linux"
+version = "1.4.2"
+
+[deps.dav1d]
+default-recipe = "apotocki/dav1d"
+version = ">= 1.0"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.22" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
