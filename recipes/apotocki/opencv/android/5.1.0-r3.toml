@@ -1,0 +1,114 @@
+api = 1
+cxx-standard = ">= 17"
+description = "OpenCV, the library of computer vision: image processing, codecs, features, calibration, video analysis, DNN inference."
+format = 1
+keywords = [ "computer-vision", "image", "image-processing", "video", "dnn", "opencv" ]
+library = "opencv"
+license = "Apache-2.0 AND BSD-3-Clause AND MIT AND MIT-Modern-Variant AND OFL-1.1"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/opencv"
+recipe-sha256 = "60ab14376367b5203c77950b97f6c4cce7ff95e86d392cd640cfbf8472c43938"
+recipe-source = { commit = "5ddd158fe519d6acde6de2726c7ae597d2527dea", git = "https://github.com/otok-dev/recipes", path = "recipes/opencv/5.1/android" }
+revision = 3
+source = { commit = "e4f78fbcf1a773fbed69e14500e8b734963eb585", git = "https://github.com/opencv/opencv", tag = "5.1.0" }
+variant = "android"
+version = "5.1.0"
+
+[deps.abseil]
+default-recipe = "apotocki/abseil"
+linkage = "static"
+version = ">= 20260000"
+when = { has = "dnn", option = "modules" }
+
+[deps.dav1d]
+default-recipe = "apotocki/dav1d"
+version = ">= 1.0"
+when = { has = "avif", option = "codecs" }
+
+[deps.ffmpeg]
+default-recipe = "apotocki/ffmpeg"
+version = ">= 6.0"
+when = { option = "ffmpeg" }
+
+[deps.libavif]
+default-recipe = "apotocki/libavif"
+version = ">= 1.0"
+when = { has = "avif", option = "codecs" }
+
+[deps.libjpeg-turbo]
+default-recipe = "apotocki/libjpeg-turbo"
+requires-options = { api = "libjpeg" }
+version = ">= 3.0"
+when = { has = "jpeg", option = "codecs" }
+
+[deps.libpng]
+default-recipe = "apotocki/libpng"
+version = ">= 1.6"
+when = { has = "png", option = "codecs" }
+
+[deps.libtiff]
+default-recipe = "apotocki/libtiff"
+version = ">= 4.0"
+when = { has = "tiff", option = "codecs" }
+
+[deps.libwebp]
+default-recipe = "apotocki/libwebp"
+version = ">= 1.0"
+when = { has = "webp", option = "codecs" }
+
+[deps.openjpeg]
+default-recipe = "apotocki/openjpeg"
+version = ">= 2.3"
+when = { has = "jpeg2000", option = "codecs" }
+
+[deps.protobuf]
+default-recipe = "apotocki/protobuf"
+linkage = "static"
+requires-options = { runtime = "full" }
+toolchains = [ "protoc" ]
+version = ">= 30"
+when = { has = "dnn", option = "modules" }
+
+[options.codecs]
+additive = true
+default = [ "jpeg", "png" ]
+type = "list"
+values = [ "avif", "jpeg", "jpeg2000", "png", "tiff", "webp" ]
+
+[options.ffmpeg]
+default = false
+type = "bool"
+
+[options.modules]
+additive = true
+default = [ "imgcodecs", "imgproc" ]
+type = "list"
+values = [
+"calib",
+"dnn",
+"features",
+"flann",
+"geometry",
+"imgcodecs",
+"imgproc",
+"objdetect",
+"photo",
+"stereo",
+"stitching",
+"video",
+"videoio"
+]
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
+
+[[resource]]
+commit = "cacea38588eb35de69075a0a1a876b82bfcd88dd"
+git = "https://gitlab.arm.com/kleidi/kleidicv.git"
+name = "kleidicv"
+tag = "26.09"
