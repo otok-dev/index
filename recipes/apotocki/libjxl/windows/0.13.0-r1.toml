@@ -1,0 +1,36 @@
+api = 1
+cxx-standard = ">= 17"
+description = "libjxl, the reference library of JPEG XL: encoding and decoding, lossless JPEG recompression, color management."
+format = 1
+keywords = [ "image", "jpegxl", "jxl", "codec" ]
+library = "libjxl"
+license = "BSD-3-Clause"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/libjxl"
+recipe-sha256 = "aeaa9fddefe582dcce16c9997905f19ca77970c1d35dbfcf3813e7d73192e8e7"
+recipe-source = { commit = "cec4a3db9d495c0081b6bb1a68eff2d75e992641", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libjxl/0.13/windows" }
+revision = 1
+source = { commit = "5a7da83447212fe4900fc29ce97430b881caa67e", git = "https://github.com/libjxl/libjxl", tag = "v0.13.0" }
+variant = "windows"
+version = "0.13.0"
+
+[deps.brotli]
+default-recipe = "apotocki/brotli"
+version = ">= 1.0"
+
+[deps.highway]
+default-recipe = "apotocki/highway"
+version = ">= 1.0.7"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
+
+[[resource]]
+commit = "96d9171c94b937a1b5f0293de7309ac16311b722"
+git = "https://github.com/google/skcms"
+name = "skcms"
