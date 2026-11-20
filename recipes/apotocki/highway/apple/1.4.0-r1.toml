@@ -1,0 +1,23 @@
+api = 1
+cxx-standard = ">= 17"
+description = "Highway, a C++ library of portable SIMD and vector intrinsics, its best code chosen for the CPU at run time."
+format = 1
+keywords = [ "simd", "vector", "performance", "cpu" ]
+library = "highway"
+license = "Apache-2.0 OR BSD-3-Clause"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/highway"
+recipe-sha256 = "42314caf0543d00038cfe1d9356f63b3931c8e916f9530163df2cf0bf2ec9024"
+recipe-source = { commit = "a2ca93c846d647d5cf9e942cee217baf5b2d526f", git = "https://github.com/otok-dev/recipes.git", path = "recipes/highway/1.4/apple" }
+revision = 1
+source = { commit = "2607d3b5b0113992fe84d3848859eae13b3b52c1", git = "https://github.com/google/highway", tag = "1.4.0" }
+variant = "apple"
+version = "1.4.0"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
