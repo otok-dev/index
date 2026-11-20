@@ -1,0 +1,24 @@
+api = 1
+cxx-standard = ">= 14"
+description = "OpenJPH, an open-source implementation of HTJ2K (JPEG 2000 Part 15), the codec of OpenEXR's HTJ2K compression."
+format = 1
+keywords = [ "image", "jpeg2000", "htj2k", "codec" ]
+library = "openjph"
+license = "BSD-2-Clause"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-20T22:31:42Z
+recipe = "apotocki/openjph"
+recipe-sha256 = "56e7e63488850cc1e445f836ae7a7b0c64c494b2e854145250c8c6f3d58887d0"
+recipe-source = { commit = "542ec462bddc05e373471fcdc564fd2a8a3b591e", git = "https://github.com/otok-dev/recipes.git", path = "recipes/openjph/0.33/windows" }
+revision = 1
+source = { commit = "345a8bcd1c7a3908e3870797057277660a412073", git = "https://github.com/aous72/OpenJPH", tag = "0.33.0" }
+variant = "windows"
+version = "0.33.0"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
