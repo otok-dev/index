@@ -1,0 +1,23 @@
+api = 1
+description = "OpenJPEG, the reference JPEG 2000 codec library (openjp2): JPEG 2000 and HTJ2K decoding, JPEG 2000 encoding."
+format = 1
+keywords = [ "image", "jpeg2000", "jp2", "codec" ]
+library = "openjpeg"
+license = "BSD-2-Clause"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-20T16:21:27Z
+recipe = "apotocki/openjpeg"
+recipe-sha256 = "beba8cfe497cbd0db9e3aa2264d4010ec8e6d14e539198c7f04538aed3e0fe6c"
+recipe-source = { commit = "b0af36dc329aaa892fd20d083d24488978e70bc2", git = "https://github.com/otok-dev/recipes.git", path = "recipes/openjpeg/2.5/windows" }
+revision = 1
+source = { commit = "6c4a29b00211eb0430fa0e5e890f1ce5c80f409f", git = "https://github.com/uclouvain/openjpeg", tag = "v2.5.4" }
+variant = "windows"
+version = "2.5.4"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
