@@ -1,0 +1,23 @@
+api = 1
+description = "libdeflate, a heavily optimized library of DEFLATE, zlib and gzip compression and decompression of whole buffers."
+format = 1
+keywords = [ "compression", "deflate", "zlib", "gzip" ]
+library = "libdeflate"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-20T22:17:15Z
+recipe = "apotocki/libdeflate"
+recipe-sha256 = "053dcba6d817c6cc39b29bd142f57c6d0d1a8252dc2489baa2f1f44030366775"
+recipe-source = { commit = "542ec462bddc05e373471fcdc564fd2a8a3b591e", git = "https://github.com/otok-dev/recipes", path = "recipes/libdeflate/1.26/android" }
+revision = 1
+source = { commit = "92e6a0db9fa848d742f9eb286c92afc60f2c3dda", git = "https://github.com/ebiggers/libdeflate", tag = "v1.26" }
+variant = "android"
+version = "1.26"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
