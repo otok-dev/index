@@ -15,7 +15,7 @@ concurrency:
 jobs:
   probe:
     runs-on: ubuntu-24.04
-    container: ubuntu:26.04  # the system otok-linux-x64 is built on
+    container: ubuntu:26.04  # the tools below; otok-linux-x64 is static and runs on any system
     steps:
       - name: Tools
         run: |
@@ -58,8 +58,16 @@ jobs:
               jq -r --arg h "$host" '.ssh_keys[] | "\($h) \(.)"' "$RUNNER_TEMP/meta.json" > "$RUNNER_TEMP/known_hosts"
               [ -s "$RUNNER_TEMP/known_hosts" ]
               export GIT_SSH_COMMAND="ssh -i $RUNNER_TEMP/push-key -o IdentitiesOnly=yes -o UserKnownHostsFile=$RUNNER_TEMP/known_hosts"
-              git push -q "git@$host:$GITHUB_REPOSITORY.git" "HEAD:refs/heads/$BRANCH"
+              remote="git@$host:$GITHUB_REPOSITORY.git"
             else
-              git push -q
+              remote=origin
             fi
+            # the branch may have moved while probing (check.yml merging); availability.toml is written only here, so the
+            # commit is put on top of it
+            for attempt in 1 2 3; do
+              git fetch -q "$remote" "$BRANCH"
+              git rebase -q FETCH_HEAD
+              git push -q "$remote" "HEAD:refs/heads/$BRANCH" && exit 0
+            done
+            exit 1
           fi
