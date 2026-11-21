@@ -1,0 +1,23 @@
+api = 1
+description = "libdeflate, a heavily optimized library of DEFLATE, zlib and gzip compression and decompression of whole buffers."
+format = 1
+keywords = [ "compression", "deflate", "zlib", "gzip" ]
+library = "libdeflate"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-21T09:25:19Z
+recipe = "apotocki/libdeflate"
+recipe-sha256 = "d066c7c3d9bb7c159b9e9bad982583c1c318013808b578eafad7929adf018325"
+recipe-source = { commit = "557d9560675a6b5a2fb279c8a8ac19da8e5e4d8b", git = "https://github.com/otok-dev/recipes.git", path = "recipes/libdeflate/1.26/apple" }
+revision = 1
+source = { commit = "92e6a0db9fa848d742f9eb286c92afc60f2c3dda", git = "https://github.com/ebiggers/libdeflate", tag = "v1.26" }
+variant = "apple"
+version = "1.26"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

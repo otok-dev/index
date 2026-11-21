@@ -1,0 +1,24 @@
+api = 1
+cxx-standard = ">= 14"
+description = "Imath, the C++ and Python library of 2D and 3D vectors, matrices, quaternions and the half float type of OpenEXR."
+format = 1
+keywords = [ "math", "vector", "matrix", "half", "graphics" ]
+library = "imath"
+license = "BSD-3-Clause"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-21T09:25:19Z
+recipe = "apotocki/imath"
+recipe-sha256 = "339da027946b784728dbb6ec6dcd92c9baf3c1b64e49ddc9a8eb898c6c453f79"
+recipe-source = { commit = "557d9560675a6b5a2fb279c8a8ac19da8e5e4d8b", git = "https://github.com/otok-dev/recipes.git", path = "recipes/imath/3.2/apple" }
+revision = 1
+source = { commit = "5f27ba266d3ea1565e912570c30b5eafc89959f1", git = "https://github.com/AcademySoftwareFoundation/Imath", tag = "v3.2.3" }
+variant = "apple"
+version = "3.2.3"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
