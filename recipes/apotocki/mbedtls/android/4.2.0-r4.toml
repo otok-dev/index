@@ -1,0 +1,23 @@
+api = 1
+description = "Mbed TLS, a small, portable implementation of TLS, DTLS, X.509 and the PSA Cryptography API."
+format = 1
+keywords = [ "tls", "ssl", "x509", "crypto", "cryptography", "psa" ]
+library = "mbedtls"
+license = "Apache-2.0 OR GPL-2.0-or-later"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-22T12:44:29Z
+recipe = "apotocki/mbedtls"
+recipe-sha256 = "93d52a6de16bdf43c8c6bcb52eba7dfd9931adadd1e9ef8d705bb029c778b73a"
+recipe-source = { commit = "693ecbca5c1b1d30ada79bb00549447794a6326f", git = "https://github.com/otok-dev/recipes.git", path = "recipes/mbedtls/4.2/android" }
+revision = 4
+source = { sha256 = "2bed9d713b4668f76553b097e72b8aa30bc8f112a940d7ae228d524bbde6ffea", url = "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.2.0/mbedtls-4.2.0.tar.bz2" }
+variant = "android"
+version = "4.2.0"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
