@@ -1,0 +1,107 @@
+api = 1
+description = "libcurl, the multiprotocol file transfer library."
+format = 1
+keywords = [ "http", "https", "ftp", "network", "transfer", "url" ]
+library = "curl"
+license = "curl"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-22T13:00:01Z
+recipe = "apotocki/curl"
+recipe-sha256 = "f4a3afc37a7ee0e6fc42db078a0b62470a6a1f97ae9bd3c01b7bb97a9076847b"
+recipe-source = { commit = "b568a473a5218067e1782a08b41c4a6cc2d13fc1", git = "https://github.com/otok-dev/recipes.git", path = "recipes/curl/8.23/apple" }
+revision = 3
+source = { sha256 = "8dadd7d2536a314f982ad05a651b713f426bf7d02cc2c76cffb9796f2218e6c5", url = "https://curl.se/download/curl-8.23.0.tar.xz" }
+variant = "apple"
+version = "8.23.0"
+
+[deps.brotli]
+default-recipe = "apotocki/brotli"
+version = ">= 1.0"
+when = { option = "brotli" }
+
+[deps.libpsl]
+default-recipe = "apotocki/libpsl"
+version = ">= 0.20"
+when = { option = "psl" }
+
+[deps.libssh2]
+default-recipe = "apotocki/libssh2"
+version = ">= 1.11"
+when = { option = "ssh" }
+
+[deps.mbedtls]
+default-recipe = "apotocki/mbedtls"
+version = ">= 4.0"
+when = { is = "mbedtls", option = "tls" }
+
+[deps.nghttp2]
+default-recipe = "apotocki/nghttp2"
+version = ">= 1.0"
+when = { option = "http2" }
+
+[deps.nghttp3]
+default-recipe = "apotocki/nghttp3"
+version = ">= 1.0"
+when = { option = "http3" }
+
+[deps.ngtcp2]
+default-recipe = "apotocki/ngtcp2"
+version = ">= 1.12"
+when = { option = "http3" }
+
+[deps.openssl]
+default-recipe = "apotocki/openssl"
+version = ">= 3.0"
+when = { is = "openssl", option = "tls" }
+
+[deps.zstd]
+default-recipe = "apotocki/zstd"
+version = ">= 1.4"
+when = { option = "zstd" }
+
+[options.brotli]
+additive = true
+default = false
+type = "bool"
+
+[options.http2]
+additive = true
+default = false
+type = "bool"
+
+[options.http3]
+additive = true
+default = false
+type = "bool"
+
+[options.idn]
+additive = true
+default = false
+type = "bool"
+
+[options.psl]
+additive = true
+default = false
+type = "bool"
+
+[options.ssh]
+default = true
+type = "bool"
+
+[options.tls]
+default = "openssl"
+type = "enum"
+values = [ "openssl", "mbedtls", "none" ]
+
+[options.zstd]
+additive = true
+default = false
+type = "bool"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
