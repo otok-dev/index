@@ -38,26 +38,31 @@ when = { option = "zstd" }
 [options.jpeg]
 additive = true
 default = false
+doc = "JPEG compression, with libjpeg (of libjpeg-turbo)."
 type = "bool"
 
 [options.lzma]
 additive = true
 default = false
+doc = "LZMA2 compression, with liblzma."
 type = "bool"
 
 [options.webp]
 additive = true
 default = false
+doc = "WebP compression, with libwebp."
 type = "bool"
 
 [options.zlib]
 additive = true
 default = true
+doc = "Deflate and PixarLog compression, with zlib."
 type = "bool"
 
 [options.zstd]
 additive = true
 default = false
+doc = "ZSTD compression, with zstd."
 type = "bool"
 
 [platforms]

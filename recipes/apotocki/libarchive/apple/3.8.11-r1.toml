@@ -50,31 +50,37 @@ when = { option = "zstd" }
 [options.bzip2]
 additive = true
 default = true
+doc = "bzip2, and bzip2 in zip, 7-Zip and XAR, with bzip2."
 type = "bool"
 
 [options.lz4]
 additive = true
 default = true
+doc = "lz4, with lz4."
 type = "bool"
 
 [options.lzma]
 additive = true
 default = true
+doc = "xz, lzma and lzip, and LZMA in zip, 7-Zip and XAR, with liblzma."
 type = "bool"
 
 [options.xml]
 default = "libxml2"
+doc = "The XML library of the XAR format: libxml2 (reading and writing), Expat (reading only), or none (no XAR)."
 type = "enum"
 values = [ "libxml2", "expat", "none" ]
 
 [options.zlib]
 additive = true
 default = true
+doc = "gzip, deflate in zip, and the formats that need it (ISO 9660 zisofs, XAR, 7-Zip deflate), with the SDK's zlib."
 type = "bool"
 
 [options.zstd]
 additive = true
 default = true
+doc = "zstd, and zstd in zip and 7-Zip, with zstd."
 type = "bool"
 
 [platforms]

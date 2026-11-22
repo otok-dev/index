@@ -16,22 +16,27 @@ version = "3.54.1"
 
 [options.column-metadata]
 default = false
+doc = "The column metadata API (sqlite3_column_table_name and the like)."
 type = "bool"
 
 [options.extensions]
 default = false
+doc = "Loadable extensions (sqlite3_load_extension); without them the library needs no dynamic loader."
 type = "bool"
 
 [options.fts5]
 default = true
+doc = "Full-text search, the FTS5 module."
 type = "bool"
 
 [options.math]
 default = true
+doc = "The SQL math functions (sin, log, ceil and the like)."
 type = "bool"
 
 [options.rtree]
 default = true
+doc = "The R*Tree and Geopoly modules."
 type = "bool"
 
 [platforms]

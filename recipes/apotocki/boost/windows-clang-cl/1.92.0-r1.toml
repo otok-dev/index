@@ -22,11 +22,13 @@ when = { option = "icu" }
 
 [options.icu]
 default = false
+doc = "ICU (the icu4c recipe) as the backend of Boost.Locale and for the Unicode support of Boost.Regex (boost/regex/icu.hpp). The products of Boost then hold ICU's libraries, which a static link takes only as far as it uses them."
 type = "bool"
 
 [options.libraries]
 additive = true
 default = []
+doc = "The compiled libraries to build (b2 --with-<library>); each becomes a product. Without any, Boost is its headers."
 type = "list"
 values = [
 "atomic",

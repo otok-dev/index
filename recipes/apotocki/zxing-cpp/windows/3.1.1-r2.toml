@@ -17,6 +17,7 @@ version = "3.1.1"
 
 [options.writers]
 default = false
+doc = "The writer of the new backend (ZXING_WRITERS = NEW: CreateBarcode.h, WriteBarcode.h), built from the bundled libzint into the ZXing library."
 type = "bool"
 
 [platforms]

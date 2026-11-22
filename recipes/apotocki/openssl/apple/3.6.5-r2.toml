@@ -15,6 +15,7 @@ version = "3.6.5"
 
 [options.no-deprecated]
 default = false
+doc = "Configure with no-deprecated: removes the deprecated APIs."
 type = "bool"
 
 [platforms]

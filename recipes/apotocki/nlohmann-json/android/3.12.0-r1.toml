@@ -17,27 +17,33 @@ version = "3.12.0"
 [options.diagnostic-positions]
 additive = true
 default = false
+doc = "The parsed values keep their start and end positions in the input, named by exceptions (JSON_DIAGNOSTIC_POSITIONS=1). It changes the ABI namespace."
 type = "bool"
 
 [options.diagnostics]
 additive = true
 default = false
+doc = "Extended diagnostic messages: exceptions name the JSON Pointer of the value that failed (JSON_DIAGNOSTICS=1). It costs memory and time, and changes the ABI namespace."
 type = "bool"
 
 [options.disable-enum-serialization]
 default = false
+doc = "No implicit serialization of enumerations as integers: an enumeration needs NLOHMANN_JSON_SERIALIZE_ENUM or its own to_json/from_json (JSON_DISABLE_ENUM_SERIALIZATION=1)."
 type = "bool"
 
 [options.global-udls]
 default = true
+doc = "The user-defined literals _json and _json_pointer in the global namespace too; false keeps them in nlohmann::literals::json_literals only (JSON_USE_GLOBAL_UDLS=0)."
 type = "bool"
 
 [options.implicit-conversions]
 default = true
+doc = "Implicit conversions of a json value to other types; false makes them explicit, get<T>() only (JSON_USE_IMPLICIT_CONVERSIONS=0)."
 type = "bool"
 
 [options.legacy-discarded-value-comparison]
 default = false
+doc = "Comparisons with a discarded value as before 3.11.0 (JSON_USE_LEGACY_DISCARDED_VALUE_COMPARISON=1). It changes the ABI namespace."
 type = "bool"
 
 [platforms]

@@ -18,6 +18,7 @@ version = "3.4.0"
 [options.compiled]
 additive = true
 default = false
+doc = "Compile the implementation into a library (TOML_HEADER_ONLY=0), linked through the product TomlPlusPlusLib, instead of compiling it in every translation unit of the consumer. The headers of the product TomlPlusPlus then need that library."
 type = "bool"
 
 [platforms]

@@ -52,36 +52,43 @@ when = { option = "zstd" }
 [options.bzip2]
 additive = true
 default = true
+doc = "bzip2, and bzip2 in zip, 7-Zip and XAR, with bzip2."
 type = "bool"
 
 [options.crypto]
 default = "openssl"
+doc = "OpenSSL for traditional and AES encryption of zip, the digests of XAR, mtree and WARC; none leaves them out."
 type = "enum"
 values = [ "openssl", "none" ]
 
 [options.lz4]
 additive = true
 default = true
+doc = "lz4, with lz4."
 type = "bool"
 
 [options.lzma]
 additive = true
 default = true
+doc = "xz, lzma and lzip, and LZMA in zip, 7-Zip and XAR, with liblzma."
 type = "bool"
 
 [options.xml]
 default = "expat"
+doc = "The XML library of the XAR format: Expat (reading only), libxml2 (reading and writing; API level 28 or later, for iconv), or none (no XAR)."
 type = "enum"
 values = [ "expat", "libxml2", "none" ]
 
 [options.zlib]
 additive = true
 default = true
+doc = "gzip, deflate in zip, and the formats that need it (ISO 9660 zisofs, XAR, 7-Zip deflate), with the NDK's zlib."
 type = "bool"
 
 [options.zstd]
 additive = true
 default = true
+doc = "zstd, and zstd in zip and 7-Zip, with zstd."
 type = "bool"
 
 [platforms]

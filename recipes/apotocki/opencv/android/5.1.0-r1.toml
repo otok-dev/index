@@ -58,16 +58,19 @@ when = { has = "dnn", option = "modules" }
 [options.codecs]
 additive = true
 default = [ "jpeg", "png" ]
+doc = "The image formats of imgcodecs that need a library, each from its recipe: jpeg (libjpeg-turbo), png (libpng), tiff (libtiff), webp (libwebp). BMP, GIF, PNM/PAM, PFM, Sun Raster and Radiance HDR are always there."
 type = "list"
 values = [ "jpeg", "png", "tiff", "webp" ]
 
 [options.ffmpeg]
 default = false
+doc = "FFmpeg (its recipe) as a backend of videoio, which needs videoio in modules: reading and writing the video files and streams FFmpeg knows. A dynamic opencv needs a dynamic ffmpeg."
 type = "bool"
 
 [options.modules]
 additive = true
 default = [ "imgcodecs", "imgproc" ]
+doc = "The modules in opencv_world besides core, with the modules they need (imgproc needs geometry and flann): calib, dnn, features, flann, geometry, imgcodecs, imgproc, objdetect, photo, stereo, stitching, video, videoio (the NDK's media and camera APIs: API level 24 or later)."
 type = "list"
 values = [
 "calib",

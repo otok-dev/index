@@ -67,40 +67,48 @@ when = { option = "zstd" }
 [options.brotli]
 additive = true
 default = false
+doc = "Content-Encoding: br, with Brotli."
 type = "bool"
 
 [options.http2]
 additive = true
 default = false
+doc = "HTTP/2, with nghttp2."
 type = "bool"
 
 [options.http3]
 additive = true
 default = false
+doc = "HTTP/3 over QUIC, with ngtcp2 and nghttp3. Needs tls = openssl, OpenSSL 3.5 or later (its QUIC API)."
 type = "bool"
 
 [options.idn]
 additive = true
 default = false
+doc = "Internationalized domain names, with libidn2."
 type = "bool"
 
 [options.psl]
 additive = true
 default = false
+doc = "The Public Suffix List, with libpsl: cookies are refused for domains that are public suffixes (co.uk)."
 type = "bool"
 
 [options.ssh]
 default = false
+doc = "SFTP and SCP with libssh2, which uses OpenSSL (OpenSSL is then linked whatever `tls` is)."
 type = "bool"
 
 [options.tls]
 default = "mbedtls"
+doc = "The TLS library: Mbed TLS or OpenSSL (the consumer gives the certificates: CURLOPT_CAINFO, CURLOPT_CAPATH or CURLOPT_CAINFO_BLOB) or none (no HTTPS)."
 type = "enum"
 values = [ "mbedtls", "openssl", "none" ]
 
 [options.zstd]
 additive = true
 default = false
+doc = "Content-Encoding: zstd, with Zstandard."
 type = "bool"
 
 [platforms]

@@ -26,6 +26,7 @@ version = ">= 1.2"
 
 [options.dav1d]
 default = true
+doc = "AV1 decoding with dav1d (the decoder libdav1d), much faster than FFmpeg's own AV1 decoder."
 type = "bool"
 
 [platforms]

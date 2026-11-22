@@ -17,6 +17,7 @@ version = "2.15.4"
 [options.zlib]
 additive = true
 default = false
+doc = "Reading and writing gzip-compressed documents, with zlib."
 type = "bool"
 
 [platforms]

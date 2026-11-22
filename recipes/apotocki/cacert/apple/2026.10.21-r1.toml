@@ -16,6 +16,7 @@ version = "2026.10.21"
 
 [options.data]
 default = "static"
+doc = "Where the bundle is. static: in libcacert, which otok_cacert.h declares (otok_cacert_pem(), otok_cacert_pem_size()), linked into the product. file: in cacert.pem, which otok delivers in data/ of the output, and libcacert is a stub holding nothing; the application gives the file to its TLS library."
 type = "enum"
 values = [ "static", "file" ]
 

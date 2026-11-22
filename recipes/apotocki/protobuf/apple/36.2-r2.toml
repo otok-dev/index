@@ -21,12 +21,14 @@ version = ">= 20260000"
 
 [options.runtime]
 default = "full"
+doc = "The runtime: full (libprotobuf: reflection, descriptors, text and JSON) or lite (libprotobuf-lite: messages optimized for code size, no reflection). A program uses one of them."
 type = "enum"
 values = [ "full", "lite" ]
 
 [options.zlib]
 additive = true
 default = false
+doc = "GzipOutputStream and ZeroCopyGzip streams, with zlib."
 type = "bool"
 
 [platforms]

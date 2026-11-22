@@ -25,6 +25,7 @@ version = ">= 1.2"
 
 [options.crypto]
 default = "wincng"
+doc = "The crypto backend: WinCNG (Windows' own; with ECDSA, Windows 10 or later) or OpenSSL."
 type = "enum"
 values = [ "wincng", "openssl" ]
 

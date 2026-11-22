@@ -17,10 +17,12 @@ version = "3.1.1"
 
 [options.jni]
 default = false
+doc = "Android: libzxingcpp_android.so, the JNI library of zxing-cpp's Android wrapper (wrappers/android), with the reader inside, as the library ZXing of the product ZXing, without headers; data/ of the output has the wrapper's BarcodeReader.kt, the class of zxingcpp.BarcodeReader that loads it, for the app's sources (with the ProGuard rule -keep class zxingcpp.** { *; }: the library makes the class's results through JNI). With writers, also the recipe's writer (android/ZXingCppWriter.cpp) and BarcodeWriter.kt, zxingcpp.BarcodeWriter. Needs linkage = \"dynamic\"."
 type = "bool"
 
 [options.writers]
 default = false
+doc = "The writer of the new backend (ZXING_WRITERS = NEW: CreateBarcode.h, WriteBarcode.h), built from the bundled libzint into the ZXing library; with jni into libzxingcpp_android.so, with zxingcpp.BarcodeWriter."
 type = "bool"
 
 [platforms]

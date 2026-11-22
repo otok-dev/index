@@ -16,6 +16,7 @@ version = "3.2.1"
 
 [options.api]
 default = "libjpeg"
+doc = "The library: libjpeg (jpeglib.h) or TurboJPEG (turbojpeg.h, a higher-level API with its own PNG and PPM readers). The static TurboJPEG library holds the libjpeg code as well, the shared one does not export it."
 type = "enum"
 values = [ "libjpeg", "turbojpeg" ]
 
