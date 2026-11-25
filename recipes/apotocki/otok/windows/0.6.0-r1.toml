@@ -1,0 +1,72 @@
+api = 1
+cxx-standard = ">= 23"
+description = "otok, the dependency manager that builds native libraries from source, built by otok."
+format = 1
+keywords = [ "package-manager", "build", "dependencies" ]
+library = "otok"
+license = "GPL-3.0-only WITH AdditionRef-otok-output-exception"
+recipe = "apotocki/otok"
+recipe-sha256 = "712034c29141cb9b6af80c35d747f0ac31ecf8333dc7baa40a4e3d10f09854ee"
+recipe-source = { commit = "acde6a277b028464290fcac2fd89c0cfef87f9f1", git = "https://github.com/otok-dev/recipes", path = "recipes/otok/0.6/windows" }
+revision = 1
+source = { sha256 = "0940a198c9868f332524d1eb43379e572b4415f74952edb82ec8835df1c8729a", url = "https://github.com/otok-dev/otok/releases/download/v0.6.0/otok-0.6.0.tar.gz" }
+variant = "windows"
+version = "0.6.0"
+
+[deps.bzip2]
+default-recipe = "apotocki/bzip2"
+version = ">= 1.0"
+
+[deps.curl]
+default-recipe = "apotocki/curl"
+requires-options = { tls = "schannel" }
+version = ">= 8.0"
+
+[deps.detours]
+default-recipe = "apotocki/detours"
+version = ">= 4.0"
+
+[deps.inja]
+default-recipe = "apotocki/inja"
+version = ">= 3.4"
+
+[deps.libarchive]
+default-recipe = "apotocki/libarchive"
+requires-options = { bzip2 = true, crypto = "none", lzma = true, xml = "none", zlib = true, zstd = true }
+version = ">= 3.7"
+
+[deps.lz4]
+default-recipe = "apotocki/lz4"
+version = ">= 1.7"
+
+[deps.lzma]
+default-recipe = "apotocki/lzma"
+version = ">= 5.0"
+
+[deps.nlohmann-json]
+default-recipe = "apotocki/nlohmann-json"
+version = ">= 3.11"
+
+[deps.tomlplusplus]
+default-recipe = "apotocki/tomlplusplus"
+requires-options = { compiled = true }
+version = ">= 3.4"
+
+[deps.zlib]
+default-recipe = "apotocki/zlib"
+version = ">= 1.2"
+
+[deps.zstd]
+default-recipe = "apotocki/zstd"
+version = ">= 1.4"
+
+[platforms]
+build-on = [ "windows/msvc" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "otok" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.25" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
