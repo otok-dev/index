@@ -58,6 +58,11 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE/index"
           "$RUNNER_TEMP/otok" index-view index --output "$RUNNER_TEMP/site"
           "$RUNNER_TEMP/otok" index-catalog index --output "$RUNNER_TEMP/site"
+      # otok-dev's own: visits of the catalog counted by GoatCounter, as on the documentation site (no cookies or
+      # personal data); not part of tools/index-ci/view.yml of otok
+      - name: Visit counter
+        run: |
+          find "$RUNNER_TEMP/site" -name '*.html' -exec sed -i 's|</head>|<script data-goatcounter="https://otok-dev.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script></head>|' {} +
       - uses: actions/upload-pages-artifact@v4
         with:
           path: ${{ runner.temp }}/site
