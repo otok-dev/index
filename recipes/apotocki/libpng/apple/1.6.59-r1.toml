@@ -1,0 +1,22 @@
+api = 1
+description = "libpng, the reference library for PNG images."
+format = 1
+keywords = [ "png", "image" ]
+library = "libpng"
+license = "libpng-2.0"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/libpng"
+recipe-sha256 = "167b3d93b09111448d7515d350062a61821940d86bce8ff91be72c50883e0202"
+recipe-source = { commit = "71c775704c8115546c1426a1812b5593e5ca85aa", git = "https://github.com/otok-dev/recipes", path = "recipes/libpng/1.6/apple" }
+revision = 1
+source = { commit = "cd952f49f95bb27154ae77dbb103032d95f6e580", git = "https://github.com/pnggroup/libpng", tag = "v1.6.59" }
+variant = "apple"
+version = "1.6.59"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
