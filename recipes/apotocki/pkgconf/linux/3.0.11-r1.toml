@@ -1,0 +1,24 @@
+api = 1
+description = "pkgconf, the pkg-config program: compiler and linker flags of libraries from their .pc files."
+format = 1
+keywords = [ "build", "tool" ]
+library = "pkg-config"
+license = "ISC"
+recipe = "apotocki/pkgconf"
+recipe-sha256 = "6900050adb9c96982e64680e96f2c056c06f8d4b34f60d6fce3eee8d13a789fa"
+recipe-source = { commit = "72190427dbe0a3c22a8eb228684c64688d31c477", git = "https://github.com/otok-dev/recipes", path = "recipes/pkgconf/3.0/linux" }
+revision = 1
+source = { sha256 = "d0cd841bc8e55b9da888106c00dc256d05b7d1d8e5a46f4be4eb4c5125bd2dc4", url = "https://distfiles.ariadne.space/pkgconf/pkgconf-3.0.11.tar.xz" }
+variant = "linux"
+version = "3.0.11"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[tool]
+programs = [ "pkg-config" ]
+
+[toolchains]
+meson = { default-recipe = "apotocki/meson", version = ">= 0.47" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
