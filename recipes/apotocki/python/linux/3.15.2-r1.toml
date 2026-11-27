@@ -1,0 +1,41 @@
+api = 1
+description = "Python, the interpreter, prebuilt for the build machine."
+format = 1
+keywords = [ "python", "interpreter", "tool" ]
+library = "python"
+license = "PSF-2.0"
+published = 2026-11-27T22:58:11Z
+recipe = "apotocki/python"
+recipe-sha256 = "fdde045a9152d730704844afb0e54d90ca1a27be1b6473f17834779d7e30b102"
+recipe-source = { commit = "fc012b55d60240cb8df28c092a86320d7f528883", git = "https://github.com/otok-dev/recipes", path = "recipes/python/3.15/linux" }
+revision = 1
+source = { sha256 = "8b5536d280142ecf6cdfe15d12a21ba1c65e300bbf7b28a8d0cdb849575797de", url = "https://www.python.org/ftp/python/3.15.2/Python-3.15.2.tar.xz" }
+variant = "linux"
+version = "3.15.2"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[tool]
+programs = [ "python" ]
+
+[[resource]]
+name = "linux_x86_64"
+sha256 = "08d4ae9024a7cfbd3b70e559241afa2571cd3208d7bd5f96f88e0080dd4092aa"
+url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.15.2%2B20261026-x86_64-unknown-linux-gnu-install_only.tar.gz"
+
+[[resource]]
+name = "linux_arm64"
+sha256 = "6fc73e8a4c80a65d2a0ed21535c65383f7b9f96bb58a5f40ed035bd7ee318616"
+url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.15.2%2B20261026-aarch64-unknown-linux-gnu-install_only.tar.gz"
+
+[[resource]]
+name = "linux_x86_64_musl"
+sha256 = "369c945a2004ababf340014e5febe716852d5d190e89c998b4b047ccb531627a"
+url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.15.2%2B20261026-x86_64-unknown-linux-musl-install_only.tar.gz"
+
+[[resource]]
+name = "linux_arm64_musl"
+sha256 = "2bdc94b8155ee7aff6a4c4d24d23e26cf98adbee71734273865f4d8e2c41b77c"
+url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.15.2%2B20261026-aarch64-unknown-linux-musl-install_only.tar.gz"
