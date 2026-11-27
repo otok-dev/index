@@ -1,0 +1,22 @@
+api = 1
+description = "HarfBuzz, the text shaping engine: Unicode text and an OpenType font in, positioned glyphs out; and its font subsetter."
+format = 1
+keywords = [ "text", "shaping", "font", "opentype", "unicode" ]
+library = "harfbuzz"
+license = "MIT-Modern-Variant AND MIT"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/harfbuzz"
+recipe-sha256 = "056aa3e7e7680d21d503e750f7239f52489a286a4040a1f37b6cefee83ef7576"
+recipe-source = { commit = "e68d988f05d6151be14e7a9003ac1ee2aee577b9", git = "https://github.com/otok-dev/recipes", path = "recipes/harfbuzz/15.2/android" }
+revision = 1
+source = { commit = "ed51d202cfd0c29372d3ee056eb0dc715688a410", git = "https://github.com/harfbuzz/harfbuzz.git", tag = "15.2.0" }
+variant = "android"
+version = "15.2.0"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+meson = { default-recipe = "apotocki/meson", version = ">= 1.2" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
