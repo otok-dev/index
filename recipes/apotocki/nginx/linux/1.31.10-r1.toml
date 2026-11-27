@@ -1,0 +1,115 @@
+api = 1
+description = "nginx, an HTTP and reverse proxy server, a mail proxy server and a generic TCP/UDP proxy server."
+format = 1
+keywords = [ "http", "server", "proxy", "web", "tool" ]
+library = "nginx"
+license = "BSD-2-Clause"
+recipe = "apotocki/nginx"
+recipe-sha256 = "d1e861b2b84a6c7f7739880de64f888aea19e7ec2eb9a7bfff45fa207160e3cf"
+recipe-source = { commit = "58b08fac0b5dfd04231316c1326716bc38c03f65", git = "https://github.com/otok-dev/recipes", path = "recipes/nginx/1.31/linux" }
+revision = 1
+source = { mirrors = [ "https://github.com/nginx/nginx/releases/download/release-1.31.10/nginx-1.31.10.tar.gz" ], sha256 = "a9b690957fca84abdae8a9b52d66b1bb459282d7f01fe4b94b498ed8e977bdb3", url = "https://nginx.org/download/nginx-1.31.10.tar.gz" }
+variant = "linux"
+version = "1.31.10"
+
+[deps.brotli]
+default-recipe = "apotocki/brotli"
+version = ">= 1.0"
+when = { option = "brotli" }
+
+[deps.openssl]
+default-recipe = "apotocki/openssl"
+version = ">= 3.0"
+
+[deps.pcre2]
+default-recipe = "apotocki/pcre2"
+requires-options = { jit = true }
+version = ">= 10.30"
+
+[deps.zlib]
+default-recipe = "apotocki/zlib"
+version = ">= 1.2.1"
+
+[options.brotli]
+additive = true
+default = false
+doc = "ngx_brotli's filter module, compiled in: Brotli compression of responses (brotli, brotli_types, …). Its static module (precompressed .br files) is not built."
+type = "bool"
+
+[options.crypt]
+additive = true
+default = false
+doc = "crypt() of the system's libcrypt (libxcrypt) for auth_basic, which then checks the hashes of the system too: bcrypt ($2y$), SHA-512 ($6$), SHA-256 ($5$), yescrypt ($y$). The build machine needs its headers (libcrypt-dev), the server libcrypt.so.1. Without it auth_basic checks the hashes nginx computes itself: $apr1$, {SHA}, {SSHA}, {PLAIN}."
+type = "bool"
+
+[options.headers-more]
+additive = true
+default = false
+doc = "The headers-more module of OpenResty, compiled in: more_set_headers, more_clear_headers, more_set_input_headers, more_clear_input_headers."
+type = "bool"
+
+[options.modules]
+additive = true
+default = [ "http_ssl", "http_v2", "threads" ]
+doc = "The parts of nginx built besides its default modules: each is configure's --with-<name>_module, and mail, stream, threads and compat are --with-<name>. Those needing other libraries (xslt, image_filter, geoip, perl, google_perftools) are not offered."
+type = "list"
+values = [
+"http_ssl",
+"http_v2",
+"http_v3",
+"http_realip",
+"http_addition",
+"http_sub",
+"http_dav",
+"http_flv",
+"http_mp4",
+"http_gunzip",
+"http_gzip_static",
+"http_auth_request",
+"http_random_index",
+"http_secure_link",
+"http_degradation",
+"http_slice",
+"http_stub_status",
+"http_json",
+"mail",
+"mail_ssl",
+"stream",
+"stream_ssl",
+"stream_realip",
+"stream_ssl_preread",
+"threads",
+"compat"
+]
+
+[options.prefix]
+default = "/usr/local/nginx"
+doc = "configure's --prefix: where nginx is installed on the server, and the root of its other paths unless settings give them. The output holds the tree under this path."
+type = "string"
+
+[options.settings]
+default = []
+doc = "Other paths and settings of configure, as '<name>=<value>' for its --<name>=<value>: sbin-path, modules-path, conf-path, error-log-path, pid-path, lock-path, http-log-path, http-client-body-temp-path, http-proxy-temp-path, http-fastcgi-temp-path, http-uwsgi-temp-path, http-scgi-temp-path, user, group. Paths are absolute."
+type = "list"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[tool]
+link = { libraries = [ { library = "crypt", when = { option = "crypt" } } ] }
+programs = [ "nginx" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
+
+[[resource]]
+commit = "53e0fb55f250f48fe80c0ddbf6c0f7103cdbaae1"
+git = "https://github.com/google/ngx_brotli"
+name = "ngx_brotli"
+
+[[resource]]
+commit = "e30b10e0bb1cfb042d76ba3a865410ff95d65660"
+git = "https://github.com/openresty/headers-more-nginx-module"
+name = "headers_more"
+tag = "v0.42"
