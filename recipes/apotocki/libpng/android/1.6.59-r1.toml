@@ -1,0 +1,22 @@
+api = 1
+description = "libpng, the reference library for PNG images."
+format = 1
+keywords = [ "png", "image" ]
+library = "libpng"
+license = "libpng-2.0"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/libpng"
+recipe-sha256 = "a3400662c8e879cf9b186548fd5df6c07cea57908da264a8532c62d1dc4b4e64"
+recipe-source = { commit = "06922a8dc35f2c86098dd0b5ee616b6dae2ef422", git = "https://github.com/otok-dev/recipes", path = "recipes/libpng/1.6/android" }
+revision = 1
+source = { commit = "cd952f49f95bb27154ae77dbb103032d95f6e580", git = "https://github.com/pnggroup/libpng", tag = "v1.6.59" }
+variant = "android"
+version = "1.6.59"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
