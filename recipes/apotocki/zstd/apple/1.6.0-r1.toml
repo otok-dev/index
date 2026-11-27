@@ -1,0 +1,22 @@
+api = 1
+description = "Zstandard, a fast lossless compression algorithm."
+format = 1
+keywords = [ "compression", "zstd" ]
+library = "zstd"
+license = "BSD-3-Clause OR GPL-2.0-only"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/zstd"
+recipe-sha256 = "1d21f2d10a5fb6a3d34995794270d72a143dad673d9f35dbe8a4542b9a9cd1d4"
+recipe-source = { commit = "7638114dd41a50aab65216e81f4437cc8e36dd4b", git = "https://github.com/otok-dev/recipes", path = "recipes/zstd/1.6/apple" }
+revision = 1
+source = { sha256 = "2ba599ae2a257976278e7e71e998433a387bfd18aa7b78678229fd5d84f5e9b8", url = "https://github.com/facebook/zstd/releases/download/v1.6.0/zstd-1.6.0.tar.gz" }
+variant = "apple"
+version = "1.6.0"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
