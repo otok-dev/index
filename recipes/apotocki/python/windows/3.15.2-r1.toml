@@ -1,0 +1,31 @@
+api = 1
+description = "Python, the interpreter, prebuilt for the build machine: python.org's embeddable package on Windows."
+format = 1
+keywords = [ "python", "interpreter", "tool" ]
+library = "python"
+license = "PSF-2.0"
+published = 2026-11-27T22:59:38Z
+recipe = "apotocki/python"
+recipe-sha256 = "1e60b1c9bee7aa70c0cddd03536a69212a7c76261149511ed000834598d651c3"
+recipe-source = { commit = "376104f8244b5ddcfd098d9ab0082ce1f22d6d99", git = "https://github.com/otok-dev/recipes", path = "recipes/python/3.15/windows" }
+revision = 1
+source = { sha256 = "8b5536d280142ecf6cdfe15d12a21ba1c65e300bbf7b28a8d0cdb849575797de", url = "https://www.python.org/ftp/python/3.15.2/Python-3.15.2.tar.xz" }
+variant = "windows"
+version = "3.15.2"
+
+[platforms]
+build-on = [ "windows/msvc", "windows/clang-cl" ]
+supported = [ "windows" ]
+
+[tool]
+programs = [ "python" ]
+
+[[resource]]
+name = "windows_x86_64"
+sha256 = "d012f3aa29cf07436dae8aea1fec0fd195c2612a0b059b1f915ae0afb9ad1f62"
+url = "https://www.python.org/ftp/python/3.15.2/python-3.15.2-embed-amd64.zip"
+
+[[resource]]
+name = "windows_arm64"
+sha256 = "089eae5e8aba8284c2ce59df008c1dc915af46fd9e8b1227e3a7f315211567c9"
+url = "https://www.python.org/ftp/python/3.15.2/python-3.15.2-embed-arm64.zip"
