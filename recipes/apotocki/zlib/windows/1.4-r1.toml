@@ -1,0 +1,22 @@
+api = 1
+description = "zlib, the general-purpose compression library."
+format = 1
+keywords = [ "compression", "deflate", "zlib" ]
+library = "zlib"
+license = "Zlib"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/zlib"
+recipe-sha256 = "bb96d11dc74b44a646fa15c25bef207c182c27b159f8488c99504c2e6fb4a1e1"
+recipe-source = { commit = "6bc61959a4b692971087a9d1ec075b966329a0c7", git = "https://github.com/otok-dev/recipes", path = "recipes/zlib/1.4/windows" }
+revision = 1
+source = { sha256 = "02dd159783677a749c04adbdd02b55b8a2bcc7e054f51b76b549199a916ad584", url = "https://github.com/madler/zlib/releases/download/v1.4/zlib-1.4.tar.gz" }
+variant = "windows"
+version = "1.4"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
