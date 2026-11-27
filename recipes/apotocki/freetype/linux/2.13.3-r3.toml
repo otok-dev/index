@@ -1,0 +1,23 @@
+api = 1
+description = "FreeType, the font rasterizer."
+format = 1
+keywords = [ "font", "truetype", "rasterizer" ]
+library = "freetype"
+license = "FTL OR GPL-2.0-or-later"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-27T23:43:53Z
+recipe = "apotocki/freetype"
+recipe-sha256 = "2b09d4b35aa9dc75d6ebb3966ef7aac9955bf67be63ff6bc17e5d86666d11d19"
+recipe-source = { commit = "521a3eade91bd0e125ac1c579f9eee859ad39a47", git = "https://github.com/otok-dev/recipes", path = "recipes/freetype/2.13/linux" }
+revision = 3
+source = { commit = "42608f77f20749dd6ddc9e0536788eaad70ea4b5", git = "https://gitlab.freedesktop.org/freetype/freetype.git", tag = "VER-2-13-3" }
+variant = "linux"
+version = "2.13.3"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
