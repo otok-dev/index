@@ -1,0 +1,23 @@
+api = 1
+description = "Expat, a stream-oriented XML parser library written in C."
+format = 1
+keywords = [ "xml", "parser" ]
+library = "expat"
+license = "MIT"
+linkage = [ "static" ]
+published = 2026-11-28T01:12:41Z
+recipe = "apotocki/expat"
+recipe-sha256 = "e624f5631ad33c6107f871ae6eb0732422025082797f29b38fdf366467ce4962"
+recipe-source = { commit = "e37cab66424a5f2bea2b9aee18becfbdd18c2f75", git = "https://github.com/otok-dev/recipes", path = "recipes/expat/2.11/windows" }
+revision = 1
+source = { sha256 = "61e7614b602201c28a189dafee78f5bceaee192bbde46a930752ff09cf5542fa", url = "https://github.com/libexpat/libexpat/releases/download/R_2_11_0/expat-2.11.0.tar.xz" }
+variant = "windows"
+version = "2.11.0"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
