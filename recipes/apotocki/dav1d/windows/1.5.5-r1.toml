@@ -1,0 +1,30 @@
+api = 1
+description = "dav1d, an AV1 decoder focused on speed and correctness."
+format = 1
+keywords = [ "av1", "video", "decoder" ]
+library = "dav1d"
+license = "BSD-2-Clause"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-28T14:44:15Z
+recipe = "apotocki/dav1d"
+recipe-sha256 = "14f99a00851d44c8f1d8137828ea058469f5ad25c92cbf96bd6bfcd501313f78"
+recipe-source = { commit = "89bb18a0bb55bb57f2d969739f44693abbeb0e40", git = "https://github.com/otok-dev/recipes", path = "recipes/dav1d/1.5/windows" }
+revision = 1
+source = { sha256 = "ca96b1d0ba3f01f55de7231d775892b64994ba061aaeeaaa4f662a390b3abf9e", url = "https://downloads.videolan.org/pub/videolan/dav1d/1.5.5/dav1d-1.5.5.tar.xz" }
+variant = "windows"
+version = "1.5.5"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+meson = { default-recipe = "apotocki/meson", version = ">= 1.2" }
+nasm = { default-recipe = "apotocki/nasm", version = ">= 2.14", when = { arch = [ "x86_64" ] } }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
+perl = { default-recipe = "apotocki/perl", version = ">= 5.30", when = { arch = [ "arm64" ], environment = [ "windows/msvc" ] } }
+
+[[resource]]
+name = "gas_preprocessor"
+sha256 = "7124d70cdecba7c5612f9a71fbf3f28514dd9c2ca3022f58ad793f88bb925fcf"
+url = "https://raw.githubusercontent.com/FFmpeg/gas-preprocessor/ac1836309c2e77023c228b7184485597286289d3/gas-preprocessor.pl"
