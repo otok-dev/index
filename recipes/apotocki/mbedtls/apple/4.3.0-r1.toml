@@ -1,0 +1,23 @@
+api = 1
+description = "Mbed TLS, a small, portable implementation of TLS, DTLS, X.509 and the PSA Cryptography API."
+format = 1
+keywords = [ "tls", "ssl", "x509", "crypto", "cryptography", "psa" ]
+library = "mbedtls"
+license = "Apache-2.0 OR GPL-2.0-or-later"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-28T14:44:53Z
+recipe = "apotocki/mbedtls"
+recipe-sha256 = "825a67ca478a81c7a5f0668aa3448d6194b1721aae4ab48d24aaee70bde2be28"
+recipe-source = { commit = "fd353e5adf111e93a55b112b9f396f8cdb2d699d", git = "https://github.com/otok-dev/recipes", path = "recipes/mbedtls/4.3/apple" }
+revision = 1
+source = { sha256 = "1c87cba094cb40f097ebe0eba440a74939b71dab4e1d0d566bc90749ff381d18", url = "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.3.0/mbedtls-4.3.0.tar.bz2" }
+variant = "apple"
+version = "4.3.0"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
