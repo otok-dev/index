@@ -1,0 +1,23 @@
+api = 1
+description = "Microsoft Detours, the library for intercepting and instrumenting Win32 API calls."
+format = 1
+keywords = [ "hooking", "instrumentation", "interception", "windows" ]
+library = "detours"
+license = "MIT"
+linkage = [ "static" ]
+published = 2026-11-28T14:08:06Z
+recipe = "apotocki/detours"
+recipe-sha256 = "eb0259bd7eb9d5292ec843f5e482c9218ca7e204d0e7fbb635af9169ea1f8fb7"
+recipe-source = { commit = "ac216f632a0d5bb53e504b173a498b5d411539e8", git = "https://github.com/otok-dev/recipes", path = "recipes/detours/4.0/windows" }
+revision = 3
+source = { commit = "1dbd4ea281d73d478aa8d09a8b83fbd265f715f7", git = "https://github.com/microsoft/Detours" }
+variant = "windows"
+version = "4.0.1.20260929"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
