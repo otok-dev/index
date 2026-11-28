@@ -1,0 +1,29 @@
+api = 1
+cxx-standard = ">= 17"
+description = "toml++, a TOML parser and serializer for C++17 and later: header-only, or compiled as a library."
+format = 1
+keywords = [ "toml", "parser", "serializer", "config", "cpp" ]
+library = "tomlplusplus"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/tomlplusplus"
+recipe-sha256 = "24c8fe061905ecf5946ce8f0367c5435e0233b3edb8b320eaf83c368e8d72ed0"
+recipe-source = { commit = "6a1c824549b3a97bbbd158eb8f42a03fbf239a1a", git = "https://github.com/otok-dev/recipes", path = "recipes/tomlplusplus/3.5/android" }
+revision = 1
+source = { commit = "efd80e03356af65c7d4e61c56ffb326b34f8d0f4", git = "https://github.com/marzer/tomlplusplus", tag = "v3.5.1" }
+variant = "android"
+version = "3.5.1"
+
+[options.compiled]
+additive = true
+default = false
+doc = "Compile the implementation into a library (TOML_HEADER_ONLY=0), linked through the product TomlPlusPlusLib, instead of compiling it in every translation unit of the consumer. The headers of the product TomlPlusPlus then need that library."
+type = "bool"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20", when = { option = "compiled" } }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10", when = { option = "compiled" } }
