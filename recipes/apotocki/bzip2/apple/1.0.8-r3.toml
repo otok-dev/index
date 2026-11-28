@@ -1,0 +1,23 @@
+api = 1
+description = "libbz2, the bzip2 compression library."
+format = 1
+keywords = [ "compression", "bzip2" ]
+library = "bzip2"
+license = "bzip2-1.0.6"
+linkage = [ "static" ]
+published = 2026-11-28T13:56:40Z
+recipe = "apotocki/bzip2"
+recipe-sha256 = "ae0f6eaeb7c98bb5fde2d954354bba7e8461508bd1c14fb9b2b1f6cf06f8e546"
+recipe-source = { commit = "ac216f632a0d5bb53e504b173a498b5d411539e8", git = "https://github.com/otok-dev/recipes", path = "recipes/bzip2/1.0/apple" }
+revision = 3
+source = { sha256 = "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269", url = "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz" }
+variant = "apple"
+version = "1.0.8"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
