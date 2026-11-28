@@ -1,0 +1,29 @@
+api = 1
+cxx-standard = ">= 17"
+description = "toml++, a TOML parser and serializer for C++17 and later: header-only, or compiled as a library."
+format = 1
+keywords = [ "toml", "parser", "serializer", "config", "cpp" ]
+library = "tomlplusplus"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/tomlplusplus"
+recipe-sha256 = "90f2c170e4421336cb12a86e0443b6d01827cb5e1ce7bbfcb63a4b52597a615b"
+recipe-source = { commit = "10a102b1231bbe926e1a94c4faaf470f0945141c", git = "https://github.com/otok-dev/recipes", path = "recipes/tomlplusplus/3.5/windows" }
+revision = 1
+source = { commit = "efd80e03356af65c7d4e61c56ffb326b34f8d0f4", git = "https://github.com/marzer/tomlplusplus", tag = "v3.5.1" }
+variant = "windows"
+version = "3.5.1"
+
+[options.compiled]
+additive = true
+default = false
+doc = "Compile the implementation into a library (TOML_HEADER_ONLY=0), linked through the product TomlPlusPlusLib, instead of compiling it in every translation unit of the consumer. The headers of the product TomlPlusPlus then need that library."
+type = "bool"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20", when = { option = "compiled" } }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10", when = { option = "compiled" } }
