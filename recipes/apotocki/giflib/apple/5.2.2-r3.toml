@@ -1,0 +1,23 @@
+api = 1
+description = "giflib, the library for reading and writing GIF images."
+format = 1
+keywords = [ "image", "gif", "codec" ]
+library = "giflib"
+license = "MIT"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-28T14:00:33Z
+recipe = "apotocki/giflib"
+recipe-sha256 = "25d7f0bd281177a88250d58805a777e4fbea214f9c1ee1bd45f05a7add725b17"
+recipe-source = { commit = "ac216f632a0d5bb53e504b173a498b5d411539e8", git = "https://github.com/otok-dev/recipes", path = "recipes/giflib/5.2/apple" }
+revision = 3
+source = { sha256 = "be7ffbd057cadebe2aa144542fd90c6838c6a083b5e8a9048b8ee3b66b29d5fb", url = "https://downloads.sourceforge.net/giflib/giflib-5.2.2.tar.gz" }
+variant = "apple"
+version = "5.2.2"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "ios", "iossim", "macosx", "catalyst", "tvos", "tvossim", "watchos", "watchossim", "xros", "xrossim" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

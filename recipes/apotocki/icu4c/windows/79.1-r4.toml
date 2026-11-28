@@ -1,0 +1,49 @@
+api = 1
+cxx-standard = ">= 17"
+description = "ICU, the International Components for Unicode (libicuuc, libicui18n, libicuio, the data)."
+format = 1
+keywords = [ "unicode", "i18n", "icu" ]
+library = "icu4c"
+license = "Unicode-3.0"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-28T01:05:47Z
+recipe = "apotocki/icu4c"
+recipe-sha256 = "86403430e27cfcfb6d71f1fdcdf091d155016555bc41e1fd5b96b7b79693d823"
+recipe-source = { commit = "e68d988f05d6151be14e7a9003ac1ee2aee577b9", git = "https://github.com/otok-dev/recipes", path = "recipes/icu4c/79/windows" }
+revision = 4
+source = { sha256 = "06fa63ecb521048f8082f12ad988f6b678d90cbd88aafce24cbc94902b191d99", url = "https://github.com/unicode-org/icu/releases/download/release-79.1/icu4c-79.1-sources.tgz" }
+variant = "windows"
+version = "79.1"
+
+[options.data]
+default = "static"
+doc = "Where the ICU data is. static: in libicudata, linked into the product. file: in icudt79l.dat, which otok delivers in data/ of the output, and libicudata is a stub; the application gives ICU the file before its first use, with u_setDataDirectory (the directory holding icudt79l.dat) or udata_setCommonData (its contents in memory). none: the stub only, and no file; the application brings the data itself."
+type = "enum"
+values = [ "static", "file", "none" ]
+
+[options.data-filter]
+doc = "A data filter of ICU's data build tool (JSON, https://unicode-org.github.io/icu/userguide/icu_data/buildtool.html): the data is built from its sources with what the filter keeps, for data = static or file. Needs Python 3."
+type = "file"
+
+[options.no-renaming]
+default = false
+doc = "No version suffixes on the C entry points (u_strlen, not u_strlen_79), so that Swift, which sees no function-like macros, can call ICU directly. Two such ICUs in one process collide. On iOS and the other Apple platforms but macOS the names are those of the private API of the system libicucore, and App Store review rejects an app whose executable still has them as symbols (ITMS-90338): strip it, or use this option outside the App Store."
+type = "bool"
+
+[platforms]
+build-on = [ "windows/msvc" ]
+supported = [ "windows" ]
+
+[toolchains]
+make = { default-recipe = "apotocki/make", version = ">= 3.81" }
+python = { default-recipe = "apotocki/python", version = ">= 3.9" }
+
+[[resource]]
+name = "data"
+sha256 = "72489fb316a60ae1c1da205866edd01b17e8fbf8354ad0615e6cc60f74e08811"
+url = "https://github.com/unicode-org/icu/releases/download/release-79.1/icu4c-79.1-data-bin-l.zip"
+
+[[resource]]
+name = "data_sources"
+sha256 = "b3a430009bb5fab77b1a4b98fab85cc8f887e26d4e4166121724298ae14d7224"
+url = "https://github.com/unicode-org/icu/releases/download/release-79.1/icu4c-79.1-data.zip"

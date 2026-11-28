@@ -1,0 +1,41 @@
+api = 1
+description = "HarfBuzz, the text shaping engine: Unicode text and an OpenType font in, positioned glyphs out; and its font subsetter."
+format = 1
+keywords = [ "text", "shaping", "font", "opentype", "unicode" ]
+library = "harfbuzz"
+license = "MIT-Modern-Variant AND MIT"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-28T01:39:13Z
+recipe = "apotocki/harfbuzz"
+recipe-sha256 = "908763d1de9fefb33fd9c58d19cfe13e7a70a4146fb92a0e1eff497a97c82208"
+recipe-source = { commit = "60c2d996020bfafff1a3e5abb1858413a5337084", git = "https://github.com/otok-dev/recipes", path = "recipes/harfbuzz/15.2/linux" }
+revision = 2
+source = { commit = "ed51d202cfd0c29372d3ee056eb0dc715688a410", git = "https://github.com/harfbuzz/harfbuzz.git", tag = "15.2.0" }
+variant = "linux"
+version = "15.2.0"
+
+[deps.freetype]
+default-recipe = "apotocki/freetype"
+version = ">= 2.10"
+when = { option = "freetype" }
+
+[options.freetype]
+additive = true
+default = false
+doc = "FreeType's font functions and hb-ft.h (hb_ft_font_create), with freetype."
+type = "bool"
+
+[options.raster]
+additive = true
+default = false
+doc = "libharfbuzz-raster and hb-raster.h, HarfBuzz's rasterizer of glyphs into 8-bit masks (hb_raster_draw_*), which OpenCV's putText draws with."
+type = "bool"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+meson = { default-recipe = "apotocki/meson", version = ">= 1.2" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
+pkg-config = { default-recipe = "apotocki/pkgconf", version = ">= 1", when = { option = "freetype" } }

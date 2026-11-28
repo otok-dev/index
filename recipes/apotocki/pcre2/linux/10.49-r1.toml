@@ -1,0 +1,47 @@
+api = 1
+description = "PCRE2, Perl-compatible regular expressions: pattern matching with the syntax and semantics of Perl 5, and a JIT compiler."
+format = 1
+keywords = [ "regex", "regular-expressions", "pcre" ]
+library = "pcre2"
+license = "BSD-3-Clause WITH PCRE2-exception"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-27T12:12:04Z
+recipe = "apotocki/pcre2"
+recipe-sha256 = "da414490f30fdf1bb90852ebadc3f6ecfbcd881b6b02510c0ae1b4dadbe763d6"
+recipe-source = { commit = "3f8b743f923dbd2c02a3134ff041dc1b2f97be2f", git = "https://github.com/otok-dev/recipes", path = "recipes/pcre2/10/linux" }
+revision = 1
+source = { sha256 = "53c156e1ba416a20da8e65395daa132da0d80e76910424caca3fcdae7831d384", url = "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.49/pcre2-10.49.tar.bz2" }
+variant = "linux"
+version = "10.49"
+
+[options.jit]
+additive = true
+default = true
+doc = "The JIT compiler (pcre2_jit_compile), much faster matching on the architectures it supports (x86_64, arm64 and others)."
+type = "bool"
+
+[options.pcre2-16]
+additive = true
+default = false
+doc = "The 16-bit library, libpcre2-16, for UTF-16 and 16-bit code units (product PCRE2_16)."
+type = "bool"
+
+[options.pcre2-32]
+additive = true
+default = false
+doc = "The 32-bit library, libpcre2-32, for UTF-32 and 32-bit code units (product PCRE2_32)."
+type = "bool"
+
+[options.posix]
+additive = true
+default = false
+doc = "The POSIX wrapper, libpcre2-posix, regcomp and regexec over the 8-bit library (product PCRE2_POSIX)."
+type = "bool"
+
+[platforms]
+build-on = [ "linux/gcc", "linux/clang" ]
+supported = [ "linux" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

@@ -1,0 +1,40 @@
+api = 1
+cxx-standard = ">= 17"
+description = "OpenEXR, the library of EXR images: high dynamic range, many channels, deep and multi-part images, lossless and lossy compression."
+format = 1
+keywords = [ "image", "exr", "hdr", "vfx", "codec" ]
+library = "openexr"
+license = "BSD-3-Clause"
+linkage = [ "static", "dynamic" ]
+published = 2026-11-27T22:03:42Z
+recipe = "apotocki/openexr"
+recipe-sha256 = "cface4c7f071cf034a00bceb9708eb26ee4e046dd9b8b48ece3841c0c2cdf2ac"
+recipe-source = { commit = "439e5e785148b1840848e4eee2dfbd5fb9b8cd3d", git = "https://github.com/otok-dev/recipes", path = "recipes/openexr/3.5/android" }
+revision = 1
+source = { commit = "486e238dd28ba6fed22528005b05f9f15bef0cc0", git = "https://github.com/AcademySoftwareFoundation/openexr", tag = "v3.5.5" }
+variant = "android"
+version = "3.5.5"
+
+[deps.imath]
+default-recipe = "apotocki/imath"
+version = ">= 3.1"
+
+[deps.libdeflate]
+default-recipe = "apotocki/libdeflate"
+version = ">= 1.18"
+
+[deps.openjph]
+default-recipe = "apotocki/openjph"
+version = ">= 0.32"
+
+[deps.zstd]
+default-recipe = "apotocki/zstd"
+version = ">= 1.5"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }

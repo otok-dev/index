@@ -1,0 +1,25 @@
+api = 1
+description = "pkgconf, the pkg-config program: compiler and linker flags of libraries from their .pc files."
+format = 1
+keywords = [ "build", "tool" ]
+library = "pkg-config"
+license = "ISC"
+published = 2026-11-26T11:45:05Z
+recipe = "apotocki/pkgconf"
+recipe-sha256 = "e65cc6b563aded9af9d6ff03cb42d275c203f6ccb0e70562ec22524a574ab24a"
+recipe-source = { commit = "3cabce24fb6f687ee33a5c879851c669950411c5", git = "https://github.com/otok-dev/recipes", path = "recipes/pkgconf/3.0/apple" }
+revision = 1
+source = { sha256 = "d0cd841bc8e55b9da888106c00dc256d05b7d1d8e5a46f4be4eb4c5125bd2dc4", url = "https://distfiles.ariadne.space/pkgconf/pkgconf-3.0.11.tar.xz" }
+variant = "apple"
+version = "3.0.11"
+
+[platforms]
+build-on = [ "macos/xcode" ]
+supported = [ "macosx" ]
+
+[tool]
+programs = [ "pkg-config" ]
+
+[toolchains]
+meson = { default-recipe = "apotocki/meson", version = ">= 0.47" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
