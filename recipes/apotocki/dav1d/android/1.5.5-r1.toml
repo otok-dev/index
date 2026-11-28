@@ -1,0 +1,23 @@
+api = 1
+description = "dav1d, an AV1 decoder focused on speed and correctness."
+format = 1
+keywords = [ "av1", "video", "decoder" ]
+library = "dav1d"
+license = "BSD-2-Clause"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/dav1d"
+recipe-sha256 = "4b0acb4e3a6b97c6374667fcf4b80dbbf4a0134f833e9cc9be387a8f0e8f97df"
+recipe-source = { commit = "01999be0f9051d4f37a44a890a2b7e49e966b459", git = "https://github.com/otok-dev/recipes", path = "recipes/dav1d/1.5/android" }
+revision = 1
+source = { sha256 = "ca96b1d0ba3f01f55de7231d775892b64994ba061aaeeaaa4f662a390b3abf9e", url = "https://downloads.videolan.org/pub/videolan/dav1d/1.5.5/dav1d-1.5.5.tar.xz" }
+variant = "android"
+version = "1.5.5"
+
+[platforms]
+build-on = [ "*/ndk" ]
+supported = [ "android" ]
+
+[toolchains]
+meson = { default-recipe = "apotocki/meson", version = ">= 1.2" }
+nasm = { default-recipe = "apotocki/nasm", version = ">= 2.14", when = { arch = [ "x86_64", "x86" ] } }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
