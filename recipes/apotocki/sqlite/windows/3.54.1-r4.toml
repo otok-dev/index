@@ -1,0 +1,47 @@
+api = 1
+description = "SQLite, a self-contained SQL database engine."
+format = 1
+keywords = [ "database", "sql", "sqlite" ]
+library = "sqlite"
+license = "blessing"
+linkage = [ "static", "dynamic" ]
+recipe = "apotocki/sqlite"
+recipe-sha256 = "d4c0a0735dfd9a20414dd01f049b6be9ba0141086066b62091a0b342332af50d"
+recipe-source = { commit = "ac216f632a0d5bb53e504b173a498b5d411539e8", git = "https://github.com/otok-dev/recipes", path = "recipes/sqlite/3.54/windows" }
+revision = 4
+source = { sha256 = "0a9c8e34352dad46006aa82836d5383bff9dc6bc9ce5a60553c05aa30e6ad1f9", url = "https://sqlite.org/2026/sqlite-amalgamation-3540100.zip" }
+variant = "windows"
+version = "3.54.1"
+
+[options.column-metadata]
+default = false
+doc = "The column metadata API (sqlite3_column_table_name and the like)."
+type = "bool"
+
+[options.extensions]
+default = false
+doc = "Loadable extensions (sqlite3_load_extension); without them the library needs no dynamic loader."
+type = "bool"
+
+[options.fts5]
+default = true
+doc = "Full-text search, the FTS5 module."
+type = "bool"
+
+[options.math]
+default = true
+doc = "The SQL math functions (sin, log, ceil and the like)."
+type = "bool"
+
+[options.rtree]
+default = true
+doc = "The R*Tree and Geopoly modules."
+type = "bool"
+
+[platforms]
+build-on = [ "windows/msvc", "linux/clang-cl" ]
+supported = [ "windows" ]
+
+[toolchains]
+cmake = { default-recipe = "apotocki/cmake", version = ">= 3.20" }
+ninja = { default-recipe = "apotocki/ninja", version = ">= 1.10" }
